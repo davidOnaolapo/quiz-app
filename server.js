@@ -9,8 +9,8 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
-const userRouter = require('/routes/user_router')
-const userRouter = require('/routes/widget_router')
+const userRouter = require('./routes/user_router')
+
 
 //REMOVED DB INIT FILE FROM HERE!
 
@@ -35,7 +35,7 @@ app.use(express.static("public"));
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use('/users', userRouter);
-app.use('/widgets', widgetRouter );
+
 // Note: mount other resources here, using the same pattern above
 
 
