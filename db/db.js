@@ -1,3 +1,8 @@
+const { Pool } = require('pg');
+require('dotenv').config({
+  path: '../.env'
+});
+
 let dbParams = {};
 if (process.env.DATABASE_URL) {
   dbParams.connectionString = process.env.DATABASE_URL;
@@ -11,4 +16,14 @@ if (process.env.DATABASE_URL) {
   };
 }
 
-module.exports = dbParams;
+const db = new Pool(dbParams);
+
+db.connect()
+.then(() => {
+  console.log("Connected to quiz-wiz database!")
+}). catch(e => {
+  console.log('--------ERROR--------');
+  console.log(e.message);
+});
+
+module.exports = db;
