@@ -13,4 +13,34 @@ router.get('/', (req, res) => {
     })
 });
 
+router.get('/', (req, res) => {
+  userQueries.getUsersById()
+    .then((users) => {
+      res.json(users);
+    })
+    .catch((e) => {
+      console.log(e.message);
+    })
+});
+
+router.get('/', (req, res) => {
+  userQueries.getUsers()
+    .then((users) => {
+      res.json(users);
+    })
+    .catch((e) => {
+      console.log(e.message);
+    })
+});
+
+router.get('/', (req, res) => {
+  userQueries.getUsers()
+    .then((users) => {
+      res.json(users);
+    })
+    .catch((e) => {
+      console.log(e.message);
+    })
+});
+
 module.exports = router;

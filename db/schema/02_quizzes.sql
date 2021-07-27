@@ -9,7 +9,7 @@ CREATE TABLE quizzes (
   is_private BOOLEAN NOT NULL DEFAULT FALSE,
   no_of_questions SMALLINT NOT NULL DEFAULT 1,
   created_at TIMESTAMP,
-  category VARCHAR(255) NOT NULL,
+  category VARCHAR(255),
   title VARCHAR(255)
 );
 
@@ -17,7 +17,9 @@ CREATE TABLE questions (
   id SERIAL PRIMARY KEY NOT NULL,
   quiz_id INTEGER REFERENCES quizzes(id) ON DELETE CASCADE,
   question TEXT NOT NULL,
-  answer TEXT NOT NULL
+  answer TEXT NOT NULL,
+  type VARCHAR(255),
+  category VARCHAR(255)
 );
 
 CREATE TABLE quiz_attempts (
