@@ -12,6 +12,9 @@ const morgan     = require('morgan');
 const quizWizRouter = require('./routes/quiz_wiz_router');
 const submitQuizRouter = require('./routes/submit_router');
 const createQuizRouter = require('./routes/create_router');
+const testRouter = require('./routes/test_router');
+
+
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -32,6 +35,7 @@ app.use(express.static("public"));
 app.use('/quiz_wiz', quizWizRouter);;
 app.use('/submit_quiz', submitQuizRouter);
 app.use('/create_quiz', createQuizRouter);
+app.use('/test', testRouter);
 
 // Home page
 app.get("/", (req, res) => {
