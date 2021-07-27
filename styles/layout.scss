@@ -24,8 +24,26 @@ body {
         display: none;
       }
     }
+
+    .public-quizzes-container {
+      display: flex;
+
+      article {
+        display: flex;
+
+        .quiz-form {
+          display: none;
+        }
+      }
+    }
   }
 
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
 
   h1 {
     color: #244751;

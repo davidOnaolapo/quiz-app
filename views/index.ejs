@@ -39,8 +39,10 @@
     </div>
     </header>
    <!-- Page-specific (main) content here -->
-   <main class="container">
+   <main>
      <h3>Test your knowledge or test your friends</h3>
+
+     <!-- Create quiz form (normally hidden) -->
     <section class="new-quiz">
       <h3>Make your own public or private QUIZ</h3>
       <form>
@@ -82,6 +84,32 @@
         <br>
         <button class="button" type="submit">Submit</button>
       </form>
+    </section>
+
+    <!-- Latest quizzes appended here  -->
+    <section class="public-quizzes-container">
+      <article class="quiz">
+        <header>
+          <h3>Title</h3>
+          <h3>Category</h3>
+        </header>
+        <div class="quiz-form">
+          <form>
+            <ol class="quiz-questions">
+              <li>
+                <label for="quiz-question">This is a quiz question </label>
+                <input type="text" name="quiz-question">
+              </li>
+              <li>
+                <label for="quiz-question">This is a quiz question </label>
+                <input type="text" name="quiz-question">
+              </li>
+            </ol>
+            <br>
+            <button class="button" type="submit">Submit</button>
+          </form>
+        </div>
+      </article>
     </section>
    </main>
    <footer class="site-footer">Created by DBM for Lighthouse Labs</footer>
