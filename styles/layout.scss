@@ -1,10 +1,10 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: rgb(212, 148, 241);
+  background-color: rgb(117, 177, 245);
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   font-family: 'Open Sans', sans-serif;
   font-size: 24px;
 
@@ -15,10 +15,8 @@ body {
   }
 
   footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
+    font-size: 0.6em;
   }
 
   h1 {

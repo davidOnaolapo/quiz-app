@@ -34,8 +34,8 @@
       </div>
     </nav>
     <!-- Header with logo/avatar  -->
-    <header>
-      <div class ="main-image">
+    <header class="main-header">
+      <div class="main-image">
         <img src="https://images.pexels.com/photos/6266316/pexels-photo-6266316.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
     </div>
     <br>
@@ -43,10 +43,17 @@
         <h2>Welcome to</h2>
         <h2>QUIZ WIZ</h2>
     </div>
+    <div class="scores">
+      <h4>Latest Scores</h4>
+      <ol>
+        <li>Quiz name- 2/3</li>
+        <li>Quiz name- 4/4</li>
+      </ol>
+    </div>
     </header>
    <!-- Page-specific (main) content here -->
    <main>
-     <h3>Test your knowledge or test your friends</h3>
+     <h3>Test your knowledge and test your friends</h3>
 
      <!-- Create quiz form (normally hidden) -->
     <section class="new-quiz">
@@ -95,7 +102,7 @@
     <!-- Latest quizzes appended here  -->
     <section class="public-quizzes-container">
       <article class="quiz">
-        <header>
+        <header class="card-title">
           <p>Title </p>
           <p>Category</p>
         </header>
@@ -117,9 +124,8 @@
         </div>
       </article>
     </section>
-   </main>
-
-   <!-- Footer (fixed) -->
-   <footer class="site-footer">Created by DBM for Lighthouse Labs</footer>
-  </body>
+  </main>
+  <!-- Footer (fixed) -->
+  <!-- <footer class="site-footer">Created by DBM for Lighthouse Labs</footer> -->
+</body>
 </html>
