@@ -1,7 +1,5 @@
 const { Pool } = require('pg');
-require('dotenv').config({
-	path: '../../.env'
-});
+// require('dotenv').config();
 
 let dbParams = {};                 //declaring variables for midterm db connection
 if (process.env.DATABASE_URL) {
@@ -15,6 +13,15 @@ if (process.env.DATABASE_URL) {
     database: process.env.DB_NAME
   };
 }
+//for testing individual files
+const dbParams2 = {
+  host: 'localhost',
+  port: 5432,
+  user: 'labber',
+  password: 'labber',
+  database: 'midterm'
+};
+
 const db = new Pool(dbParams);
 
 db.connect()

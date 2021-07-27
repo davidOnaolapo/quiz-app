@@ -13,7 +13,6 @@ const quizWizRouter = require('./routes/quiz_wiz_router');
 const submitQuizRouter = require('./routes/submit_router');
 const createQuizRouter = require('./routes/create_router');
 
-//PG database client/connection setup
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 // The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -30,7 +29,7 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Resource routes are mounted here
-app.use('/quiz_wiz', quizWizRouter);
+app.use('/quiz_wiz', quizWizRouter);;
 app.use('/submit_quiz', submitQuizRouter);
 app.use('/create_quiz', createQuizRouter);
 

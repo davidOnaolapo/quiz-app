@@ -1,8 +1,9 @@
-const db = require('./db_connect_queries');
+const db = require('../db');
 
 const getQuizzes = () => {
   return db.query(`SELECT * FROM quizzes;`)
       .then(res => {
+      console.log(res.row);
         return res.rows;
       })
       .catch(err => {
@@ -10,7 +11,6 @@ const getQuizzes = () => {
       });
 }
 
-getQuizzes();
 module.exports = {
 	getQuizzes
 }
