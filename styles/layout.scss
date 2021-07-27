@@ -5,37 +5,10 @@ body {
   display: flex;
   flex-direction: column;
 
-  nav {
-    background-color: rgb(243, 138, 77);
-    display: flex;
-  }
-
-  header {
-    color: white;
-  }
 
   main {
     display: flex;
 
-    .new-quiz {
-      display: none;
-
-      .error {
-        display: none;
-      }
-    }
-
-    .public-quizzes-container {
-      display: flex;
-
-      article {
-        display: flex;
-
-        .quiz-form {
-          display: none;
-        }
-      }
-    }
   }
 
   footer {

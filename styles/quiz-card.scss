@@ -1,0 +1,11 @@
+.public-quizzes-container {
+  display: flex;
+
+  article {
+    display: flex;
+
+    .quiz-form {
+      display: none;
+    }
+  }
+}
