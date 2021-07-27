@@ -1,7 +1,7 @@
 const db = require('../db');
 const request = require('request');
 
-//Grab questions from external API
+//Grab questions from external API and inserts into questions column
 const grabApiQuestions = () => {
   return request('https://opentdb.com/api.php?amount=50', (error, response, body) => {
     if(error) {
@@ -21,7 +21,7 @@ const grabApiQuestions = () => {
 
       let values = [quiz_id, the_question, answer, type, category];
 
-      db.query(`
+      return db.query(`
         INSERT INTO questions (quiz_id, question, answer, type, category)
         VALUES ($1, $2, $3, $4, $5)
         RETURNING *;

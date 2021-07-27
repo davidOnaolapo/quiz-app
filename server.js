@@ -32,9 +32,11 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Resource routes are mounted here
-app.use('/quiz_wiz', quizWizRouter);;
+app.use('/quiz_wiz', quizWizRouter);
 app.use('/submit_quiz', submitQuizRouter);
 app.use('/create_quiz', createQuizRouter);
+
+//For testing backend code only
 app.use('/test', testRouter);
 
 // Home page
