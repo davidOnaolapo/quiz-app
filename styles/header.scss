@@ -1,6 +1,18 @@
 header {
   color: white;
   display: flex;
+  flex-direction: column;
   margin-top: 100px;
 
+  .main-image {
+    img {
+      height: 200px;
+      width: 250px;
+      margin-top: 60px;
+    }
+  }
+
+  .welcome-message {
+    font-family: 'Luckiest Guy', cursive;
+  }
 }
