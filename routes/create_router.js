@@ -9,13 +9,14 @@ router.post('/', (req, res) => {
     res.status(400).json({ error: 'invalid request: no data in POST body'});
     return;
   }
-  // grab relevant req.body variables here
+  // grab relevant req.body variables here, including whether its a private quiz
 
-  //query the db or somehow findout the user_id of this person thst submitted a quiz
+  //query the db or somehow findout the user_id of this person that submitted a quiz
   //Insert quiz into the db with call to quizInserts
   //Insert question into the question db with call to questionInserts
 
-  //send a response with relevant json, so it can be rendered nicely
+  //send a response with relevant json if public
+  //reroute to /quiz_wiz/:user_id/:id to render a private quiz
 });
 
 module.exports = router;

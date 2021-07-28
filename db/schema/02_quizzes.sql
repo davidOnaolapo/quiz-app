@@ -10,7 +10,7 @@ CREATE TABLE quizzes (
   no_of_questions SMALLINT NOT NULL DEFAULT 1,
   created_at TIMESTAMP,
   category VARCHAR(255),
-  title VARCHAR(255)
+  title VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE questions (

@@ -24,6 +24,8 @@ const grabApiQuestions = () => {
       return db.query(`
         INSERT INTO questions (quiz_id, question, answer, type, category)
         VALUES ($1, $2, $3, $4, $5)
+        RETURNING *;egory)
+        VALUES ($1, $2, $3, $4, $5)
         RETURNING *;
         `, values)
         .then((result) => {
