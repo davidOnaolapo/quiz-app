@@ -2,7 +2,7 @@
 const express = require('express');
 const router  = express.Router();
 const cookieSession = require('cookie-session');
-const userQueries = require('../db/queries/user_queries')
+const userQueries = require('../db/queries/user_queries');
 
 router.get('/', (req, res) => {
   userQueries.getUsers()
@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     })
     .catch((e) => {
       console.log(e.message);
-    })
+    });
 });
 
 router.post('/', (req, res) => {
@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
     })
     .catch((e) => {
       console.log(e.message);
-    })
+    });
 });
 
 module.exports = router;

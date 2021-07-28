@@ -12,6 +12,14 @@ router.post('/', async(req, res) => {
     return;
   }
 
+  userQueries.getUsers()
+    .then((users) => {
+      res.json(users);
+    })
+    .catch((e) => {
+      console.log(e.message);
+    });
+
   // grab relevant req.body variables here
   const {attempts, quiz_id} = req.body;
   
