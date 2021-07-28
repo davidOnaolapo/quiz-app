@@ -5,10 +5,18 @@ const quizInserts = require('../db/inserts/quiz_inserts');
 const userQueries = require('../db/queries/user_queries');
 
 router.post('/', (req, res) => {
-  if (!req.body.text) {
+  if (!req.body) {
     res.status(400).json({ error: 'invalid request: no data in POST body'});
     return;
   }
+
+  userQueries.getUsers()
+    .then((users) => {
+      res.json(users);
+    })
+    .catch((e) => {
+      console.log(e.message);
+    })
 
   // grab relevant req.body variables here
 

@@ -1,15 +1,4 @@
 $(document).ready(function() {
-  // const loadQuizzes = () => {
-  //   $.ajax('/quiz_wiz', { method: 'GET' })
-  //   .then(function (res) {
-  //     for(question of res) {
-  //       $("<div>").text(question.title).appendTo($("body"));
-  //     }
-  //   });
-  // }
-  // loadQuizzes();
-
-
 
   const escape = function (str) {            //Use escape function to prevent vulnerabilities from XSS
     let div = document.createElement("div");
@@ -29,11 +18,10 @@ $(document).ready(function() {
   const loadQuizzes = function() {      //Load each quiz with appropriate data
     $.get("/quiz_wiz")
     .then(function(quizData) {
-      console.log(quizData);
+      // console.log(quizData);
       renderQuizzes(quizData);
     });
   }
-
 
 
   const createQuizCard = (data) => {    //Function to create dynamic quiz cards
@@ -56,12 +44,12 @@ $(document).ready(function() {
     </li>
     </ol>
     <br>
-    <button class="button" id="submit-form" type="submit">Submit</button>
+    <button class="button"   type="submit">Submit</button>
     </form>
     </div>
     </article>
     `)
-
+      $quizCard.find("form").submit(submit_quiz)
     return $quizCard;
   }
 
