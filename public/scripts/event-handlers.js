@@ -11,7 +11,6 @@ $(document).ready(function() {
       loadQuizzes();
       $($formText).val('');
     })
-
   })
 
 });

@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
-const quizQueries = require('../db/queries/quiz_queries')
-const questionQueries = require('../db/queries/question_queries')
+const quizQueries = require('../db/queries/quiz_queries');
+const questionQueries = require('../db/queries/question_queries');
 
 //get the home page with all relevant data
 router.get('/', (req, res) => {
@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     })
     .catch((e) => {
       console.log(e.message);
-    })
+    });
 });
 
 router.get('/questions', (req, res) => {
@@ -21,7 +21,7 @@ router.get('/questions', (req, res) => {
     })
     .catch((e) => {
       console.log(e.message);
-    })
+    });
 });
 
 //What happens when a user requests their page

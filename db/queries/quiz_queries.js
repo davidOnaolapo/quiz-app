@@ -2,13 +2,13 @@ const db = require('../db');
 
 const getQuizzes = () => {
   return db.query(`SELECT * FROM quizzes;`)
-      .then(res => {
-        return res.rows;
-      })
-      .catch(err => {
-        console.log(err);
-      });
-}
+    .then(res => {
+      return res.rows;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
 
 const getQuizzesWithUsername = () => {
   return db.query(`
@@ -24,9 +24,9 @@ const getQuizzesWithUsername = () => {
     .catch(err => {
       console.log(err);
     });
-}
+};
 
 module.exports = {
-	getQuizzes,
+  getQuizzes,
   getQuizzesWithUsername
-}
+};
