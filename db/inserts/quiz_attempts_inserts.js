@@ -8,7 +8,7 @@ const insertQuizAttempts = async(user_id, quiz_id, score) => {
   const attempts = quizAttempt.no_of_attempts;
   const latest_attempt = quizAttempt.score;
   if (quizAttempt) {
-    db.query(`UPDATE quiz_attemps set score = ${score}, no_of_attempts=${attempts + 1}, latest_attempt=${latest_attempt}
+    db.query(`UPDATE quiz_attempts set score = ${score}, no_of_attempts=${attempts + 1}, latest_attempt=${latest_attempt}
     WHERE user_id = ${user_id} AND quiz_id=${quiz_id};`
     );
   }  else {

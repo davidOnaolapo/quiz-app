@@ -6,13 +6,13 @@ const getQuizzes = () => {
 
     `)
     .then(res => {
-    console.log(res.row);
+      console.log(res.row);
       return res.rows;
     })
     .catch(err => {
       console.log(err);
     });
-}
+};
 
 const getQuizzesWithUsername = () => {
   return db.query(`
@@ -22,15 +22,15 @@ const getQuizzesWithUsername = () => {
       JOIN quizzes ON user_id = users.id;
     `)
     .then(res => {
-    console.log(res.row);
+      console.log(res.row);
       return res.rows;
     })
     .catch(err => {
       console.log(err);
     });
-}
+};
 
 module.exports = {
-	getQuizzes,
+  getQuizzes,
   getQuizzesWithUsername
-}
+};
