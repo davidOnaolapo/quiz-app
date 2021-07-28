@@ -1,0 +1,24 @@
+.public-quizzes-container {
+  display: flex;
+  flex-direction: column;
+
+  article {
+    display: flex;
+    flex-direction: column;
+    border: rgb(49, 49, 49) 5px solid;
+    padding: 5px;
+    margin: 10px;
+
+    header.card-title {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 1.5em;
+    }
+
+    .quiz-form {
+      display: none;
+    }
+  }
+}
