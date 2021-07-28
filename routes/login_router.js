@@ -15,15 +15,15 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  if (!req.body) {
-    res.status(400).json({ error: 'invalid request: no data in POST body'});
-    return;
-  }
+  // if (!req.body) {
+  //   res.status(400).json({ error: 'invalid request: no data in POST body'});
+  //   return;
+  // }
 
   authenticate({email: 'alice_wonderland@gmail.com', password: 'alice'}, false)
     .then((yo) => {
-      console.log(req.body["quiz-question"]);
-      // console.log(req.session.username);
+
+      req.session.user = "Dave";
       res.redirect('/quiz_wiz')
     })
     .catch((e) => {
