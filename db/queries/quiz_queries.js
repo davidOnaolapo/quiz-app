@@ -17,7 +17,7 @@ const getQuizzes = () => {
 const getQuizzesWithUsername = () => {
   return db.query(`
       SELECT  quizzes.title as quiz_title, quizzes.no_of_questions as no_of_questions,
-        quizzes.category as quiz_category, users.userName as userName
+        quizzes.category as quiz_category, users.username as userName
       FROM users
       JOIN quizzes ON user_id = users.id;
     `)

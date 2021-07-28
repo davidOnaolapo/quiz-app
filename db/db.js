@@ -1,5 +1,5 @@
 const { Pool } = require('pg');
-require('dotenv').config();
+// require('dotenv').config();
 
 let dbParams = {};                 //declaring variables for midterm db connection
 if (process.env.DATABASE_URL) {
@@ -22,7 +22,7 @@ const dbParams2 = {
   database: 'midterm'
 };
 
-const db = new Pool(dbParams);
+const db = new Pool(dbParams2);
 
 db.connect()
 .then(() => {
