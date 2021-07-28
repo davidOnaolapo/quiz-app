@@ -1,4 +1,4 @@
-const db = require('./db_connect_queries');
+const db = require('../db');
 
 const getUsers = () => {
   return db.query(`SELECT * FROM users;`)
