@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
     <!-- Meta Information -->
-    <title>QUIZ WIZ Home Page</title>
-    <!-- External CSS -->  
-    
+    <title>QUIZ WIZ</title>
+    <!-- External CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Open+Sans&display=swap" rel="stylesheet">
     <!-- App CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/quiz-card.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/create-quiz.css" type="text/css" />
+
     <!-- External JS -->
-    
-    
+
+
     <!-- App JS -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/client.js"></script>
@@ -21,6 +26,106 @@
   </head>
 
   <body>
-    <h1>Hello World!</h1>
-  </body>
+    <!-- Top nav bar (fixed) -->
+    <nav>
+      <span>QUIZ WIZ</span>
+      <div class="create-quiz">
+        <p>Create your own QUIZ</p>
+      </div>
+    </nav>
+    <!-- Header with logo/avatar  -->
+    <header class="main-header">
+      <div class="main-image">
+        <img src="https://images.pexels.com/photos/6266316/pexels-photo-6266316.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+    </div>
+    <br>
+    <div class="welcome-message">
+        <h2>Welcome to</h2>
+        <h2>QUIZ WIZ</h2>
+    </div>
+    <div class="scores">
+      <h4>Latest Scores</h4>
+      <ol>
+        <li>Quiz name- 2/3</li>
+        <li>Quiz name- 4/4</li>
+      </ol>
+    </div>
+    </header>
+   <!-- Page-specific (main) content here -->
+   <main>
+     <h3>Test your knowledge and test your friends</h3>
+
+     <!-- Create quiz form (normally hidden) -->
+    <section class="new-quiz">
+      <h3>Make your own public or private QUIZ</h3>
+      <form>
+        <div class="error">
+          <p class="error-message">error</p>
+        </div>
+        <label for="title">Title: </label>
+        <input type="text" name="title">
+        <label for="category">Category: </label>
+        <input type="text" name="category">
+        <br>
+        <label for="question">Question: </label>
+        <input type="text" name="question">
+        <label for="answer">Answer: </label>
+        <input type="text" name="answer">
+        <br>
+        <label for="question">Question: </label>
+        <input type="text" name="question">
+        <label for="answer">Answer: </label>
+        <input type="text" name="answer">
+        <br>
+        <label for="question">Question: </label>
+        <input type="text" name="question">
+        <label for="answer">Answer: </label>
+        <input type="text" name="answer">
+        <br>
+        <label for="question">Question: </label>
+        <input type="text" name="question">
+        <label for="answer">Answer: </label>
+        <input type="text" name="answer">
+        <br>
+        <label for="question">Question: </label>
+        <input type="text" name="question">
+        <label for="answer">Answer: </label>
+        <input type="text" name="answer">
+        <br>
+        <label for="is-private">Keep my quiz private</label>
+        <input type="checkbox" name="is-private">
+        <br>
+        <button class="button" type="submit">Submit</button>
+      </form>
+    </section>
+
+    <!-- Latest quizzes appended here  -->
+    <section class="public-quizzes-container">
+      <article class="quiz">
+        <header class="card-title">
+          <p>Title </p>
+          <p>Category</p>
+        </header>
+        <div class="quiz-form">
+          <form>
+            <ol class="quiz-questions">
+              <li>
+                <label for="quiz-question">This is a quiz question </label>
+                <input type="text" name="quiz-question">
+              </li>
+              <li>
+                <label for="quiz-question">This is a quiz question </label>
+                <input type="text" name="quiz-question">
+              </li>
+            </ol>
+            <br>
+            <button class="button" type="submit">Submit</button>
+          </form>
+        </div>
+      </article>
+    </section>
+  </main>
+  <!-- Footer (fixed) -->
+  <!-- <footer class="site-footer">Created by DBM for Lighthouse Labs</footer> -->
+</body>
 </html>
