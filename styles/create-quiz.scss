@@ -1,0 +1,12 @@
+.new-quiz {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin: 10px;
+
+  // display: none;
+
+  .error {
+    display: none;
+  }
+}
