@@ -5,9 +5,9 @@ const db = require('../db');
       .then(res => {
         return res.rows;
       })
-        .catch(err => {
-          console.log(err);
-        });
+      .catch(err => {
+        console.log(err);
+      });
   }
 
 const getQuestionsAndQuizId = () => {

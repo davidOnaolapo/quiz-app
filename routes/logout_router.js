@@ -7,7 +7,7 @@ router.post('/', (req, res) => {
   res.clearCookie("session");
   res.clearCookie("session.sig");
 
-  //redirect to homepage or /login
+  res.redirect("/login")
 });
 
 module.exports = router;
