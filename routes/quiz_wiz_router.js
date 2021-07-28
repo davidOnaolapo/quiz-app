@@ -4,7 +4,7 @@ const quizQueries = require('../db/queries/quiz_queries')
 
 //get the home page with all relevant data
 router.get('/', (req, res) => {
-  quizQueries.getQuizzes()
+  quizQueries.getQuizzesWithUsername()
     .then((quizzes) => {
       res.json(quizzes);
     })
