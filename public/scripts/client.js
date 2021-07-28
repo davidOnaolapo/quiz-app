@@ -24,7 +24,11 @@ $(document).ready(function() {
   }
 
 
+<<<<<<< HEAD
   const createQuizCard = function(data) {    //Function to create dynamic quiz cards
+=======
+  const createQuizCard = (data) => {    //Function to create dynamic quiz cards
+>>>>>>> master
     const $quizCard = $(`
     <article class="quiz">
     <header class="card-title">
@@ -36,14 +40,22 @@ $(document).ready(function() {
     <ol class="quiz-questions">
     </ol>
     <br>
+<<<<<<< HEAD
     <button class="button" type="submit">Submit</button>
+=======
+    <button class="button"   type="submit">Submit</button>
+>>>>>>> master
     </form>
     </div>
     </article>
     `)
+<<<<<<< HEAD
 
     $quizCard.find("form").submit(submit_quiz());
 
+=======
+      $quizCard.find("form").submit(submit_quiz)
+>>>>>>> master
     return $quizCard;
   }
 

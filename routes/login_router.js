@@ -4,32 +4,32 @@ const router  = express.Router();
 const { authenticate, generateRandomString } = require("../lib/helpers.js");
 const userQueries = require('../db/queries/user_queries')
 
-// router.get('/', (req, res) => {
-//   userQueries.getUsers()
-//     .then((users) => {
-//       res.json(users);
-//     })
-//     .catch((e) => {
-//       console.log(e.message);
-//     })
-// });
-
 router.get('/', (req, res) => {
-  // if (!req.body.text) {
-  //   res.status(400).json({ error: 'invalid request: no data in POST body'});
-  //   return;
-  // }
+  res.render("/login");
+});
 
-  authenticate({email: 'alice_wonderland@gmail.com', password: 'alice'}, false)
-    .then((yo) => {
-      console.log("FInished authentication")
-      res.json(yo)
+router.post('/', (req, res) => {
+  if (!req.body) {
+    res.status(400).json({ error: 'invalid request: no data in POST body'});
+    return;
+  }
+
+  const user = {email: req.body.email, password: req.body.password}
+  authenticate(user, false)
+    .then((msg) => {
+      if (msg === "er1") {
+        res.send(msg)
+      } else if (msg === "er3") {
+        res.send(msg)
+      } else if (msg) {
+        //name the username the cookie session variable
+        req.session.user = msg;
+        res.redirect("/");
+      }
     })
     .catch((e) => {
       console.log(e.message);
     })
 });
-
-
 
 module.exports = router;

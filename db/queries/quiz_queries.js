@@ -1,17 +1,13 @@
 const db = require('../db');
 
 const getQuizzes = () => {
-  return db.query(`
-    SELECT quizzes.*, userName ;
-
-    `)
-    .then(res => {
-    console.log(res.row);
-      return res.rows;
-    })
-    .catch(err => {
-      console.log(err);
-    });
+  return db.query(`SELECT * FROM quizzes;`)
+      .then(res => {
+        return res.rows;
+      })
+      .catch(err => {
+        console.log(err);
+      });
 }
 
 const getQuizzesWithUsername = () => {
@@ -22,7 +18,7 @@ const getQuizzesWithUsername = () => {
       JOIN quizzes ON user_id = users.id;
     `)
     .then(res => {
-    console.log(res.row);
+      console.log(res.row);
       return res.rows;
     })
     .catch(err => {

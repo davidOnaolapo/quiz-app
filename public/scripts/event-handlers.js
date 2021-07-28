@@ -14,7 +14,9 @@ $(document).ready(function() {
 
   })
 
+});
 
+<<<<<<< HEAD
   // $("submit-form").submit(
 
 
@@ -38,6 +40,20 @@ $(document).ready(function() {
 
 
 });
+=======
+function submit_quiz(event) {     //event handler for quiz submissions
+  event.preventDefault();
+
+  const $serializedData = $(this).serialize();
+  const $formText = $(this.text);
+
+  $.post('/submit_quiz', $serializedData)
+  .then(function() {
+      console.log($serializedData)
+    $($formText).val('');
+  })
+}
+>>>>>>> master
 
 
 

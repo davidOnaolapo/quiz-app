@@ -1,12 +1,23 @@
 const express = require('express');
 const router  = express.Router();
 const quizQueries = require('../db/queries/quiz_queries')
+const questionQueries = require('../db/queries/question_queries')
 
 //get the home page with all relevant data
 router.get('/', (req, res) => {
   quizQueries.getQuizzesWithUsername()
     .then((quizzes) => {
       res.json(quizzes);
+    })
+    .catch((e) => {
+      console.log(e.message);
+    })
+});
+
+router.get('/questions', (req, res) => {
+  questionQueries.getQuestionsAndQuizId()
+    .then((questions) => {
+      res.json(questions);
     })
     .catch((e) => {
       console.log(e.message);
