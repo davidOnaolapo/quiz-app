@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $("create-form").submit(function(event) {     //event handler for new quizzes
+  $("form").submit(function(event) {     //event handler for new quizzes
     event.preventDefault();
 
     const $serializedData = $(this).serialize();
@@ -15,20 +15,25 @@ $(document).ready(function() {
   })
 
 
-  $("submit-form").submit(function(event) {     //event handler for quiz submissions
+  // $("submit-form").submit(
+
+
+    const submit_quiz = function(event) {     //event handler for quiz submissions
     event.preventDefault();
 
     const $serializedData = $(this).serialize();
     const $formText = $(this.text);
 
-    $.post('submit_quiz', $serializedData)
+    $.post('/submit_quiz', $serializedData)
     .then(function() {
       //show score data (new function?)
       $($formText).val('');
     })
 
-  })
+  }
 
+
+  // $("quiz").click(function())
 
 
 
