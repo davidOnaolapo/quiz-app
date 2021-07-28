@@ -15,7 +15,7 @@ router.post('/', (req, res) => {
   //Insert quiz attempts into the db with call to quizInserts (NOT SET UP YET)
 
 
-  //calculate score (with helper)
+  //calculate score (with heler)
   //run any other relevant queries
   //send a response with the score and reother relevant info
 });
