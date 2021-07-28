@@ -18,17 +18,12 @@ $(document).ready(function() {
   const loadQuizzes = function() {      //Load each quiz with appropriate data
     $.get("/quiz_wiz")
     .then(function(quizData) {
-      // console.log(quizData);
       renderQuizzes(quizData);
     });
   }
 
 
-<<<<<<< HEAD
-  const createQuizCard = function(data) {    //Function to create dynamic quiz cards
-=======
   const createQuizCard = (data) => {    //Function to create dynamic quiz cards
->>>>>>> master
     const $quizCard = $(`
     <article class="quiz">
     <header class="card-title">
@@ -40,35 +35,40 @@ $(document).ready(function() {
     <ol class="quiz-questions">
     </ol>
     <br>
-<<<<<<< HEAD
     <button class="button" type="submit">Submit</button>
-=======
-    <button class="button"   type="submit">Submit</button>
->>>>>>> master
     </form>
     </div>
     </article>
-    `)
-<<<<<<< HEAD
+    `);
 
-    $quizCard.find("form").submit(submit_quiz());
+    $quizCard.find("form").submit(submit_quiz)    //call submit quiz function to handle submits
 
-=======
-      $quizCard.find("form").submit(submit_quiz)
->>>>>>> master
     return $quizCard;
   }
 
 
+  const renderQuestions = function(questions) {
+    for (const question of questions) {
+      if (question.quiz_id = quiz.id) {
+        $(".quiz-questions").append(createQuestionForm(question));
+      }
+    }
+  }
 
+  const loadQuestions = function() {
+    $.get("/")
+    .then(function(questionData) {
+      renderQuestions(questionData);
+    });
+  }
 
   const createQuestionForm = function(data) {     //Function to create question form dynamically
-    const $questionForm = `
+    const $questionForm = $(`
     <li>
     <label for="quiz-question">${data.question} </label>
-    <input type="text" name="quiz-question">
+    <input type="text" name="user-answer">
     </li>
-    `
+    `);
 
     return $questionForm;
   }
