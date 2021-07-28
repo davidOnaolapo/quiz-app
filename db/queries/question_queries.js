@@ -1,22 +1,20 @@
 const db = require('../db');
 
-const getQuestions = () => {
   const getQuestions = () => {
     return db.query(`SELECT * FROM questions;`)
-        .then(res => {
-          return res.rows;
-        })
+      .then(res => {
+        return res.rows;
+      })
         .catch(err => {
           console.log(err);
         });
   }
-}
 
 const getQuestionsAndQuizId = () => {
   return db.query(`
       SELECT quiz_id, question
       FROM questions
-      ORDER BY quiz_id;
+      ORDER BY quiz_id;quiz_id":1,"
     `)
     .then(res => {
       console.log(res.row);
@@ -25,7 +23,7 @@ const getQuestionsAndQuizId = () => {
     .catch(err => {
       console.log(err);
     });
-}
+  }
 
 module.exports = {
 	getQuestions,
