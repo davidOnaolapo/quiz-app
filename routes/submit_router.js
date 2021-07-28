@@ -16,7 +16,7 @@ router.post('/', (req, res) => {
     })
     .catch((e) => {
       console.log(e.message);
-    })
+    });
 
   // grab relevant req.body variables here
 
