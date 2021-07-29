@@ -13,6 +13,7 @@ router.post('/', async(req, res) => {
     res.status(400).json({ error: 'invalid request: no data in POST body'});
     return;
   }
+
   console.log(req.body);
 
   const questions = req.body['user-question'];
@@ -40,6 +41,7 @@ router.post('/', async(req, res) => {
   const quizScore = await calculateScore(questions);
   console.log(quizScore);
   res.json({quizScore});
+
 });
 
 //run any other relevant queries

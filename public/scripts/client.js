@@ -43,7 +43,9 @@ const createQuizCard = (data) => {
   <div class="quiz-form">
   <form>
   <ol class="quiz-questions">
+
   ${questions}
+
   </ol>
   <br>
   <button class="button" type="submit">Submit</button>

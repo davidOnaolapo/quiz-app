@@ -21,6 +21,7 @@
   <!-- External JS -->
 
 
+
   <!-- App JS -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/client.js"></script>
@@ -40,6 +41,7 @@
     <div class="main-image">
       <img
         src="https://images.pexels.com/photos/6266316/pexels-photo-6266316.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+
     </div>
     <br>
     <div class="welcome-message">
@@ -59,19 +61,22 @@
           <p class="error-message">error</p>
         </div>
         <label for="title">Title: </label>
-        <input type="text" name="quiz-title">
+        <input type="text" name="quiz_title">
         <label for="category">Category: </label>
-        <input type="text" name="quiz-category">
+        <input type="text" name="quiz_category">
         <br>
         <label for="question">Question: </label>
-        <input type="text" name="quiz-question">
+        <input type="text" name="quiz_question">
         <label for="answer">Answer: </label>
         <input type="text" name="answer">
         <br>
         <label for="question">Question: </label>
-        <input type="text" name="quiz-question">
+        <input type="text" name="quiz_question">
         <label for="answer">Answer: </label>
         <input type="text" name="answer">
+        <br>
+        <input type="checkbox" name="is-private">
+        <label for="is-private">Keep my quiz private</label>
         <br>
         <button class="button" type="submit">Submit</button>
       </form>
@@ -80,8 +85,6 @@
     <section id="public-quizzes-container">
     </section>
   </main>
-  <!-- Footer (fixed) -->
-  <!-- <footer class="site-footer">Created by DBM for Lighthouse Labs</footer> -->
 </body>
 
 </html>

@@ -36,24 +36,21 @@
     </nav>
     <!-- Header with logo/avatar  -->
     <header class="main-header">
-      <div class="avatar">
-        <img src="https://images.freeimages.com/images/large-previews/d1f/lady-avatar-1632967.jpg">
+      <div class="main-image">
+        <img src="https://images.pexels.com/photos/6266316/pexels-photo-6266316.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
     </div>
     <br>
     <div class="welcome-message">
-        <h2>Welcome</h2>
-    </div>
-    <div class="scores">
-      <h4>Latest Scores</h4>
-      <ol>
-        <li>Lets Goo- 1/1</li>
-        <li>Im the Goat- 1/2</li>
-      </ol>
+        <h2>Welcome to</h2>
+        <h2>QUIZ WIZ</h2>
     </div>
     </header>
    <!-- Page-specific (main) content here -->
    <main>
-     <h3>Your Quizzes</h3>
+     <h3>Copy the link to share your private QUIZ</h3>
+     <form class="private-link">
+       <input type="text" name="private-link" value="http://localhost:8080/private">
+     </form>
 
      <!-- Create quiz form (normally hidden) -->
     <section class="new-quiz">
@@ -77,30 +74,29 @@
         <label for="answer">Answer: </label>
         <input type="text" name="answer">
         <br>
-        <label for="question">Question: </label>
-        <input type="text" name="quiz-question">
-        <label for="answer">Answer: </label>
-        <input type="text" name="answer">
-        <br>
-        <label for="question">Question: </label>
-        <input type="text" name="quiz-question">
-        <label for="answer">Answer: </label>
-        <input type="text" name="answer">
-        <br>
-        <label for="question">Question: </label>
-        <input type="text" name="quiz-question">
-        <label for="answer">Answer: </label>
-        <input type="text" name="answer">
-        <br>
-        <label for="is-private">Keep my quiz private</label>
-        <input type="checkbox" name="is-private">
-        <br>
         <button class="button" type="submit">Submit</button>
       </form>
     </section>
-
     <!-- Latest quizzes appended here  -->
-    <section id="public-quizzes-container">
+    <section id="private-quizzes-container">
+      <article class="quiz">
+        <header class="card-title">
+          <p>Title</p>
+          <p>Category</p>
+        </header>
+        <div class="quiz-form">
+          <form>
+            <ol class="quiz-questions">
+              <li>
+                <label for="quiz-question"> Question </label>
+                <input type="text" name="user-answer">
+              </li>
+            </ol>
+            <br>
+            <button class="button" type="submit">Submit</button>
+          </form>
+        </div>
+        </article>
     </section>
   </main>
 </body>
