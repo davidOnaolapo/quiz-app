@@ -12,10 +12,6 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/quiz-card.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/create-quiz.css" type="text/css" />
 
     <!-- External JS -->
 
@@ -37,17 +33,23 @@
     <!-- Header with logo/avatar  -->
     <header class="main-header">
       <div class="main-image">
-        <img src="https://images.pexels.com/photos/6266316/pexels-photo-6266316.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+        <img src="https://images.freeimages.com/images/large-previews/d1f/lady-avatar-1632967.jpg">
     </div>
     <br>
     <div class="welcome-message">
-        <h2>Welcome to</h2>
-        <h2>QUIZ WIZ</h2>
+        <h2>Welcome User</h2>
+    </div>
+    <div class="scores">
+      <h4>Latest Scores</h4>
+      <ol>
+        <li>Quiz name- 2/3</li>
+        <li>Quiz name- 4/4</li>
+      </ol>
     </div>
     </header>
    <!-- Page-specific (main) content here -->
    <main>
-     <h3>Test your knowledge and test your friends</h3>
+     <h3>Your Quizzes</h3>
 
      <!-- Create quiz form (normally hidden) -->
     <section class="new-quiz">
@@ -71,9 +73,28 @@
         <label for="answer">Answer: </label>
         <input type="text" name="answer">
         <br>
+        <label for="question">Question: </label>
+        <input type="text" name="quiz-question">
+        <label for="answer">Answer: </label>
+        <input type="text" name="answer">
+        <br>
+        <label for="question">Question: </label>
+        <input type="text" name="quiz-question">
+        <label for="answer">Answer: </label>
+        <input type="text" name="answer">
+        <br>
+        <label for="question">Question: </label>
+        <input type="text" name="quiz-question">
+        <label for="answer">Answer: </label>
+        <input type="text" name="answer">
+        <br>
+        <label for="is-private">Keep my quiz private</label>
+        <input type="checkbox" name="is-private">
+        <br>
         <button class="button" type="submit">Submit</button>
       </form>
     </section>
+
     <!-- Latest quizzes appended here  -->
     <section id="public-quizzes-container">
     </section>

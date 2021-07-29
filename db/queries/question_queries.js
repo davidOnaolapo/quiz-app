@@ -10,11 +10,12 @@ const db = require('../db');
       });
   }
 
-const getQuestionsAndQuizId = () => {
+const getQuestionsUsernameQuizId = () => {
   return db.query(`
-      SELECT quiz_id, question
-      FROM questions
-      ORDER BY quiz_id;
+    SELECT questions.quiz_id as quiz_id, question, users.userName as username
+    FROM questions JOIN quizzes ON quiz_id = quizzes.id
+    JOIN users ON users.id = user_id
+    GROUP BY quiz_id, question, username;
     `)
     .then(res => {
       console.log(res.row);
@@ -58,7 +59,7 @@ const getQuestionsAndQuizId = () => {
 
   module.exports = {
 	getQuestions,
-  getQuestionsAndQuizId,
+  getQuestionsUsernameQuizId,
   getQuizIdForQuestion,
   getAnswerForQuestion
 }

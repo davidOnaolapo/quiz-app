@@ -12,10 +12,6 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/quiz-card.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/create-quiz.css" type="text/css" />
 
     <!-- External JS -->
 
@@ -47,36 +43,29 @@
     </header>
    <!-- Page-specific (main) content here -->
    <main>
-     <h3>Test your knowledge and test your friends</h3>
-
-     <!-- Create quiz form (normally hidden) -->
-    <section class="new-quiz">
-      <h3>Make your own public or private QUIZ</h3>
-      <form class="create-form">
-        <div class="error">
-          <p class="error-message">error</p>
-        </div>
-        <label for="title">Title: </label>
-        <input type="text" name="quiz-title">
-        <label for="category">Category: </label>
-        <input type="text" name="quiz-category">
+     <div>
+     <h3>Login</h3>
+     <form class="login">
+      <label for="login-email">Email: </label>
+      <input type="email" name="email">
+      <br>
+      <label for="login-password">Password: </label>
+      <input type="password" name="password">
+     </form>
+    </div>
+    <div>
+      <h3>Register</h3>
+      <form class="register">
+        <label for="register-email">Email: </label>
+        <input type="email" name="email">
         <br>
-        <label for="question">Question: </label>
-        <input type="text" name="quiz-question">
-        <label for="answer">Answer: </label>
-        <input type="text" name="answer">
+        <label for="register-username">Username: </label>
+        <input type="text" name="username">
         <br>
-        <label for="question">Question: </label>
-        <input type="text" name="quiz-question">
-        <label for="answer">Answer: </label>
-        <input type="text" name="answer">
-        <br>
-        <button class="button" type="submit">Submit</button>
+        <label for="register-password">Password: </label>
+        <input type="password" name="password">
       </form>
-    </section>
-    <!-- Latest quizzes appended here  -->
-    <section id="public-quizzes-container">
-    </section>
+    </div>
   </main>
   <!-- Footer (fixed) -->
   <!-- <footer class="site-footer">Created by DBM for Lighthouse Labs</footer> -->

@@ -18,8 +18,8 @@ router.post('/', async(req, res) => {
   const userAnswers = req.body.user-answers
   const username = req.session.user;
 
+  console.log(req.body.quiz-question, req.body.user-answers, req.session.user)
 
-  1
   userQueries.getUserIdByUsername(username)
     .then((user_id) => {
       quizQueries.getQuizIdForQuestion(question[0])
