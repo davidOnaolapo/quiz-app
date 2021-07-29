@@ -1,66 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Meta Information -->
-    <meta charset="utf-8">
-    <title>QUIZ WIZ</title>
-    <!-- External CSS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Open+Sans&display=swap" rel="stylesheet">
-    <!-- App CSS -->
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/quiz-card.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/create-quiz.css" type="text/css" />
 
-    <!-- External JS -->
+<head>
+  <!-- Meta Information -->
+  <meta charset="utf-8">
+  <title>QUIZ WIZ</title>
+  <!-- External CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Open+Sans&display=swap" rel="stylesheet">
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/quiz-card.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/create-quiz.css" type="text/css" />
+
+  <!-- External JS -->
 
 
-    <!-- App JS -->
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/client.js"></script>
-    <script type="text/javascript" src="/scripts/event-handlers.js"></script>
-  </head>
 
-  <body>
-    <!-- Top nav bar (fixed) -->
-    <nav>
-      <span>QUIZ WIZ</span>
-      <div class="login-register">
-      <% if (user) { %>
-        <!-- Logged in as: <%= user.username %>! -->
-        <form method="POST" action="/logout">
-        <button type="submit" class="logout-btn"> Logout </button>
-        </form>
-    <% } else { %>
-      <a class="login-register-nav" href="/login">Login/Register</a>
-    <% } %>
-    <a class="user-nav" href="/user">Profile</a>
+  <!-- App JS -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/client.js"></script>
+  <script type="text/javascript" src="/scripts/event-handlers.js"></script>
+</head>
+
+<body>
+  <!-- Top nav bar (fixed) -->
+  <nav>
+    <span>QUIZ WIZ</span>
+    <div class="create-quiz">
+      <button class="button" id="create-button">Create your own QUIZ</button>
     </div>
-      <div class="create-quiz">
-        <button class="button" id="create-button">Create your own QUIZ</button>
-      </div>
-    </nav>
-    <!-- Header with logo/avatar  -->
-    <header class="main-header">
-      <div class="main-image">
-        <img src="https://images.pexels.com/photos/6266316/pexels-photo-6266316.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+  </nav>
+  <!-- Header with logo/avatar  -->
+  <header class="main-header">
+    <div class="main-image">
+      <img
+        src="https://images.pexels.com/photos/6266316/pexels-photo-6266316.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+
     </div>
     <br>
     <div class="welcome-message">
-        <h2>Welcome to</h2>
-        <h2>QUIZ WIZ</h2>
+      <h2>Welcome to</h2>
+      <h2>QUIZ WIZ</h2>
     </div>
-    </header>
-   <!-- Page-specific (main) content here -->
-   <main>
-     <h3>Test your knowledge and test your friends</h3>
+  </header>
+  <!-- Page-specific (main) content here -->
+  <main>
+    <h3>Test your knowledge and test your friends</h3>
 
-     <!-- Create quiz form (normally hidden) -->
+    <!-- Create quiz form (normally hidden) -->
     <section class="new-quiz">
       <h3>Make your own public or private QUIZ</h3>
       <form class="create-form">
@@ -93,4 +86,5 @@
     </section>
   </main>
 </body>
+
 </html>

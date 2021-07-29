@@ -35,7 +35,7 @@ app.set("view engine", "ejs");
 app.use(cookieSession({
   name: 'session',
   keys: ['key1', 'key2'],
-}))
+}));
 // Resource routes are mounted here
 app.use('/quiz_wiz', quizWizRouter);
 app.use('/submit_quiz', submitQuizRouter);
@@ -50,15 +50,19 @@ app.use('/test', testRouter);
 
 // Home page
 app.get("/", (req, res) => {
-  let templateVars;
-  if(req.session.user) {
-    templateVars = {user: req.session.user}
+  let templateVars = {};
+  if (req.session.user) {
+    templateVars = {user: req.session.user};
     console.log(req.session.user);
   } else {
+<<<<<<< HEAD
     templateVars = {user: false}
     console.log("no user")
+=======
+    console.log("no user");
+>>>>>>> master
   }
-  // console.log(templateVars.user);
+  console.log(templateVars.user);
   res.render("index", templateVars);
 });
 
