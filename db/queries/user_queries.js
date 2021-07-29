@@ -20,7 +20,18 @@ const getUserById = (id) => {
       });
 }
 
+const getUserIdByUsername = (username) => {
+  return db.query(`SELECT * FROM users WHERE userName = $1;`, [username])
+      .then(res => {
+        return res.rows[0];
+      })
+      .catch(err => {
+        console.log(err.message);
+      });
+}
+
 module.exports = {
 	getUsers,
-	getUserById
+	getUserById,
+  getUserIdByUsername
 }

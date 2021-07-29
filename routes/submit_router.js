@@ -4,34 +4,39 @@ const questionInserts = require('../db/inserts/question_inserts');
 const { insertQuizAttempts } = require('../db/inserts/quiz_attempts_inserts');
 const quizInserts = require('../db/inserts/quiz_inserts');
 const userQueries = require('../db/queries/user_queries');
+const questionQueries = require('../db/queries/question_queries');
 const { calculateScore } = require('../lib/helpers');
 
 router.post('/', async(req, res) => {
-  if (!req.body.text) {
+  if (!req.body) {
     res.status(400).json({ error: 'invalid request: no data in POST body'});
     return;
   }
 
-  userQueries.getUsers()
-    .then((users) => {
-      res.json(users);
-    })
-    .catch((e) => {
-      console.log(e.message);
+
+  const questions = req.body.quiz - question;
+  const userAnswers = req.body.user - answers;
+  const username = req.session.user;
+
+  console.log(req.body.quiz - question, req.body.user - answers, req.session.user);
+
+  userQueries.getUserIdByUsername(username)
+    .then((user_id) => {
+      quizQueries.getQuizIdForQuestion(question[0])
+        .then(() => {
+          let ansArr = [];
+          for (let i = 0; i < questions.length; i++) {
+            questionQueries.getAnswerForQuestion(questions[i])
+              .then((answer) => {
+                ansArr.push(answer);
+              });
+          }
+          //Insert quiz attempts into the db with call to quizInsertsAttempts if you get there
+          const scoreArr = calculateScore(ansArr, userAnswers);
+          res.json([{score: scoreArr}]);
+        });
     });
 
-  // grab relevant req.body variables here
-  const {attempts, quiz_id} = req.body;
-  
-  //query the db or somehow findout the user_id of this person that submitted a quiz
-  const user_id = req.session.user_id;
-  
-  //calculate score - needs a query to get correct answer (with helper)
-  const score = await calculateScore(attempts, quiz_id);
-  //Insert quiz attempts into the db with call to quizInsertsAttempts
-  insertQuizAttempts(attempts, quiz_id, user_id);
-
-  res.json({message: `Your score is , ${score}`});
   //run any other relevant queries
   //send a response with the score and other relevant info
 });

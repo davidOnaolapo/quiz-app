@@ -1,8 +1,5 @@
 $(document).ready(function() {
-
   loadQuizzes();
-
-
 });
 
 const escape = function(str) {            //Use escape function to prevent vulnerabilities from XSS
@@ -10,7 +7,6 @@ const escape = function(str) {            //Use escape function to prevent vulne
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
-
 
 const renderQuizzes = function(quizzes) {       //Render each new quiz card and append it to public container
   $("#public-quizzes-container").empty();
@@ -23,6 +19,7 @@ const renderQuizzes = function(quizzes) {       //Render each new quiz card and 
 const loadQuizzes = function() {      //Load each quiz with appropriate data
   $.get("/quiz_wiz")
     .then(function(quizData) {
+
       renderQuizzes(quizData);
     });
 };
@@ -30,7 +27,12 @@ const loadQuizzes = function() {      //Load each quiz with appropriate data
 
 const createQuizCard = (data) => {
   //Function to create dynamic quiz cards
-  console.log(data);
+  const questions = data.questions.map(question => ` 
+  <li>
+  <label for="quiz-question"> ${question} </label><br />
+  <input type="text" name="user-answer">
+  </li>`
+  );
   const $quizCard = $(`
   <article class="quiz">
   <header class="card-title">
@@ -40,10 +42,8 @@ const createQuizCard = (data) => {
   <div class="quiz-form">
   <form>
   <ol class="quiz-questions">
-  <li>
-  <label for="quiz-question"> Question </label>
-  <input type="text" name="user-answer">
-  </li>
+  ${questions}
+  
   </ol>
   <br>
   <button class="button" type="submit">Submit</button>

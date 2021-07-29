@@ -5,16 +5,17 @@ const db = require('../db');
       .then(res => {
         return res.rows;
       })
-        .catch(err => {
-          console.log(err);
-        });
+      .catch(err => {
+        console.log(err);
+      });
   }
 
-const getQuestionsAndQuizId = () => {
+const getQuestionsUsernameQuizId = () => {
   return db.query(`
-      SELECT quiz_id, question
-      FROM questions
-      ORDER BY quiz_id;quiz_id":1,"
+    SELECT questions.quiz_id as quiz_id, question, users.userName as username
+    FROM questions JOIN quizzes ON quiz_id = quizzes.id
+    JOIN users ON users.id = user_id
+    GROUP BY quiz_id, question, username;
     `)
     .then(res => {
       console.log(res.row);
@@ -25,7 +26,40 @@ const getQuestionsAndQuizId = () => {
     });
   }
 
-module.exports = {
+  const getQuizIdForQuestion = (question) => {
+    return db.query(`
+      SELECT quiz_id
+      FROM questions
+      WHERE question = ${question}
+      ORDER BY quiz_id;
+    `)
+    .then(res => {
+      console.log(res.row);
+      return res.rows;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
+  const getAnswerForQuestion = (question) => {
+    return db.query(`
+      SELECT question, answer
+      FROM questions
+      WHERE question = ${question};
+    `)
+    .then(res => {
+      console.log(res.row);
+      return res.rows;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
+  module.exports = {
 	getQuestions,
-  getQuestionsAndQuizId
+  getQuestionsUsernameQuizId,
+  getQuizIdForQuestion,
+  getAnswerForQuestion
 }
