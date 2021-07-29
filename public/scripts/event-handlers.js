@@ -4,26 +4,23 @@ $(document).ready(function() {
     $("section.new-quiz").slideDown("fast")
   })
 
-
-
+  $("form").submit(create_quiz);
 
 });
 
-$("form").submit(function(event) {     //event handler for new quizzes
+function create_quiz(event) {     //event handler for new quizzes
   event.preventDefault();
-
+  console.log("Im in submit");
   const $serializedData = $(this).serialize();
   const $formText = $(this.text);
-
   $.post('/create_quiz', $serializedData)
   .then(function(data) {
     loadQuizzes();
+    console.log(data)
     $(".new-quiz").slideUp("fast");
     $($formText).val('');
-    console.log($serializedData);
-
   })
-})
+}
 
 
 function submit_quiz(event) {     //event handler for quiz submissions

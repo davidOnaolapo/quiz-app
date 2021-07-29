@@ -11,31 +11,34 @@ router.post('/', (req, res) => {
     return;
   }
   //for quiz inserts
-  const username = req.session.user;
-  const no_of_questions = req.body.quiz-question.length;
-  const category = req.body.quiz-category;
-  const title = req.body.quiz-title;
+  const username = req.session.username;
+  console.log(username)
+  const no_of_questions = req.body.quiz_question.length;
+  const category = req.body.quiz_category;
+  const title = req.body.quiz_title;
+  const is_private = (req.body["is-private"] === 'on');
 
-  userQueries.getUserIdByUsername()
+  userQueries.getUserIdByUsername(username)
     .then((user_id) => {
-      const quizObj = {user_id, no_of_questions, category, title}
-      quizInserts(quizObj);
+      const quizObj = {user_id, no_of_questions, category, title, is_private}
+      quizInserts.insertQuiz(quizObj);
     })
     .catch ((err) =>{
       console.log(err.message)
     })
   //for question inserts
-  const questions = req.body.quiz-question;
+  const questions = req.body.quiz_question;
+  const answers = req.body.answer;
   quizQueries.getQuizCount()
     .then((quizzes) => {
-      const quiz_id = quizzes.count+1; //next row on the table
+      const quiz_id = quizzes[0].count; //next row on the table
       for (let i = 0; i < questions.length; i++ ) {
-        const quizObj = { quiz_id, question: questions[i], answer: answer[i]}
-        questionInserts(quizObj)
+        const quizObj = { quiz_id, question: questions[i], answer: answers[i]}
+        questionInserts.insertQuestion(quizObj)
       }
-    })
+     })
+  res.json({title: 'Yas', category: 'Les geddit', user: "Greatest", no_of_questions: '2'})
 
-  res.json({title, category, username, no_of_questions})
   //reroute to /quiz_wiz/:user_id/:id to render a private quiz
 });
 

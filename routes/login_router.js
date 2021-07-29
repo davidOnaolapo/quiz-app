@@ -5,6 +5,7 @@ const { authenticate, generateRandomString } = require("../lib/helpers.js");
 const userQueries = require('../db/queries/user_queries')
 
 router.get('/', (req, res) => {
+  req.session.username = 'cool_Alice';
   res.render("login");
 });
 
@@ -15,7 +16,6 @@ router.post('/', (req, res) => {
   }
 
   const user = {email: req.body.email, password: req.body.password}
-  // const user = {email: "alice_wonderland@gmail.com", password: "alice"}
   authenticate(user, false)
     .then((msg) => {
       if (msg === "er1") {
@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
         res.send(msg)
       } else if (msg) {
         //name the username the cookie session variable
-        req.session.user = msg;
+        req.session.username = msg;
         res.redirect("/");
       }
     })

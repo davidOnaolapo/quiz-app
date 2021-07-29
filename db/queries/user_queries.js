@@ -21,7 +21,7 @@ const getUserById = (id) => {
 }
 
 const getUserIdByUsername = (username) => {
-  return db.query(`SELECT * FROM users WHERE userName = $1;`, [username])
+  return db.query(`SELECT id FROM users WHERE userName = $1;`, [username])
       .then(res => {
         return res.rows[0];
       })
@@ -29,6 +29,8 @@ const getUserIdByUsername = (username) => {
         console.log(err.message);
       });
 }
+
+// getUserIdByUsername("movie_Brad");
 
 module.exports = {
 	getUsers,

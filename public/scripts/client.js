@@ -38,6 +38,7 @@ const createQuizCard = (data) => {    //Function to create dynamic quiz cards
   <li>
   <label for="quiz-question"> Question </label>
   <input type="text" name="user-answer">
+
   </li>
   </ol>
   <br>
