@@ -1,31 +1,39 @@
 $(document).ready(function() {
   loadQuizzes();
-})
+});
 
-const escape = function (str) {            //Use escape function to prevent vulnerabilities from XSS
+const escape = function(str) {            //Use escape function to prevent vulnerabilities from XSS
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
+};
 
 const renderQuizzes = function(quizzes) {       //Render each new quiz card and append it to public container
   $("#public-quizzes-container").empty();
   quizzes.forEach(function(quiz) {
     $("#public-quizzes-container").prepend(createQuizCard(quiz));
   });
-}
+};
 
 
 const loadQuizzes = function() {      //Load each quiz with appropriate data
   $.get("/quiz_wiz")
-  .then(function(quizData) {
-    console.log(quizData)
-    renderQuizzes(quizData);
-  });
-}
+    .then(function(quizData) {
+
+      renderQuizzes(quizData);
+    });
+};
 
 
-const createQuizCard = (data) => {    //Function to create dynamic quiz cards
+const createQuizCard = (data) => {
+  //Function to create dynamic quiz cards
+  const questions = data.questions.map(question => ` 
+  <li>
+  <label for="quiz-question"> ${question} </label><br />
+  <input type="text" name="user-answer">
+  <input type="text" name="user-question" value="${question}" hidden>
+  </li>`
+  );
   const $quizCard = $(`
   <article class="quiz">
   <header class="card-title">
@@ -35,11 +43,9 @@ const createQuizCard = (data) => {    //Function to create dynamic quiz cards
   <div class="quiz-form">
   <form>
   <ol class="quiz-questions">
-  <li>
-  <label for="quiz-question"> Question </label>
-  <input type="text" name="user-answer">
 
-  </li>
+  ${questions}
+
   </ol>
   <br>
   <button class="button" type="submit">Submit</button>
@@ -48,10 +54,10 @@ const createQuizCard = (data) => {    //Function to create dynamic quiz cards
   </article>
   `);
 
-  $quizCard.find("form").submit(submit_quiz)    //call submit quiz function to handle submits
+  $quizCard.find("form").submit(submit_quiz);    //call submit quiz function to handle submits
 
   return $quizCard;
-}
+};
 
 
 const renderQuestions = function(questions) {
@@ -60,14 +66,14 @@ const renderQuestions = function(questions) {
       $(".quiz-questions").append(createQuestionForm(question));
     }
   }
-}
+};
 
 const loadQuestions = function() {
   $.get("/")
-  .then(function(questionData) {
-    renderQuestions(questionData);
-  });
-}
+    .then(function(questionData) {
+      renderQuestions(questionData);
+    });
+};
 
 const createQuestionForm = function(data) {     //Function to create question form dynamically
   const $questionForm = $(`
@@ -78,4 +84,4 @@ const createQuestionForm = function(data) {     //Function to create question fo
   `);
 
   return $questionForm;
-}
+};

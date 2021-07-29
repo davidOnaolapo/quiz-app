@@ -35,8 +35,19 @@ const getQuizCount = () => {
       console.log(err);
     });
 };
+const getAnswerFromDb = (question)=>{
+  console.log('questions is', question);
+  return db.query(`SELECT * from questions WHERE question = $1`, [question])
+    .then(res => {
+      console.log('$$$$$ansewer db ****', res.rows[0].answer);
+      return  res.rows[0].answer;
+    })
+
+    .catch(err => console.log(err));
+};
 module.exports = {
   getQuizzes,
   getQuizzesWithUsername,
-  getQuizCount
+  getQuizCount,
+  getAnswerFromDb
 };

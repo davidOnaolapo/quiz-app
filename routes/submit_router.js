@@ -6,39 +6,46 @@ const quizInserts = require('../db/inserts/quiz_inserts');
 const userQueries = require('../db/queries/user_queries');
 const questionQueries = require('../db/queries/question_queries');
 const { calculateScore } = require('../lib/helpers');
+const { getQuizIdForQuestion, getAnswerFromDb } = require('../db/queries/quiz_queries');
 
 router.post('/', async(req, res) => {
   if (!req.body) {
     res.status(400).json({ error: 'invalid request: no data in POST body'});
     return;
   }
-  console.log("Im truly here")
 
-  // const questions = req.body.quiz-question
-  // const userAnswers = req.body.user-answers
-  // const username = req.session.username;
+  console.log(req.body);
 
-  console.log( req.session.username)
+  const questions = req.body['user-question'];
+  const userAnswers = req.body['user-answer'];
+  const username = req.session.user || 'cool-Alice';
 
-  // userQueries.getUserIdByUsername(username)
-  //   .then((user_id) => {
-  //     quizQueries.getQuizIdForQuestion(question[0])
-  //     .then(() => {
-  //       let ansArr = [];
-  //       for (let i = 0; i< questions.length; i++) {
-  //         questionQueries.getAnswerForQuestion(questions[i])
-  //           .then((answer) => {
-  //             ansArr.push(answer);
-  //           })
-  //       }
-  //       //Insert quiz attempts into the db with call to quizInsertsAttempts if you get there
-  //       const scoreArr = calculateScore(ansArr, userAnswers);
-  //       res.json([{score: scoreArr}]);
-  //     })
-  //   })
+  console.log(questions, userAnswers,username);
+  const calculateScore = async(questions) => {
+    let score = 0;
+    for (let i = 0; i < questions.length; i++) {
+      const answer = await getAnswerFromDb(questions[i]);
+      if (answer.toLowerCase().trim() === userAnswers[i].toLowerCase().trim()) {
 
-  //run any other relevant queries
-  //send a response with the score and other relevant info
+        score++;
+      }
+
+      //Insert quiz attempts into the db with call to quizInsertsAttempts if you get there
+    }
+    return score;
+  };
+
+
+  const user_id = await userQueries.getUserIdByUsername(username);
+
+  const quizScore = await calculateScore(questions);
+  console.log(quizScore);
+  res.json({quizScore});
+
 });
+
+//run any other relevant queries
+//send a response with the score and other relevant info
+
 
 module.exports = router;
