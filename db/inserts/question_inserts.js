@@ -2,13 +2,13 @@ const db = require('../db');
 const request = require('request');
 
 //Inserts a question into the db
-const insertQuestion = (valuesObj) => {
+const insertQuestion = (questionObj) => {
   //deconstruct values obj
-  const {quiz_id, the_question, answer, type, category} = valuesObj;
-  let values = [quiz_id, the_question, answer, type, category];
+  const { quiz_id, the_question, answer} = questionObj;
+  let values = [quiz_id, the_question, answer];
   db.query(`
-        INSERT INTO questions (quiz_id, question, answer, type, category)
-        VALUES ($1, $2, $3, $4, $5)
+        INSERT INTO questions (quiz_id, question, answer)
+        VALUES ($1, $2, $3)
         RETURNING *;
         `, values)
     .then((result) => {

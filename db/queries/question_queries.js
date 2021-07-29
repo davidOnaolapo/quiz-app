@@ -14,7 +14,7 @@ const getQuestionsAndQuizId = () => {
   return db.query(`
       SELECT quiz_id, question
       FROM questions
-      ORDER BY quiz_id;quiz_id":1,"
+      ORDER BY quiz_id;
     `)
     .then(res => {
       console.log(res.row);
@@ -25,7 +25,40 @@ const getQuestionsAndQuizId = () => {
     });
   }
 
-module.exports = {
+  const getQuizIdForQuestion = (question) => {
+    return db.query(`
+      SELECT quiz_id
+      FROM questions
+      WHERE question = ${question}
+      ORDER BY quiz_id;
+    `)
+    .then(res => {
+      console.log(res.row);
+      return res.rows;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
+  const getAnswerForQuestion = (question) => {
+    return db.query(`
+      SELECT question, answer
+      FROM questions
+      WHERE question = ${question};
+    `)
+    .then(res => {
+      console.log(res.row);
+      return res.rows;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
+  module.exports = {
 	getQuestions,
-  getQuestionsAndQuizId
+  getQuestionsAndQuizId,
+  getQuizIdForQuestion,
+  getAnswerForQuestion
 }

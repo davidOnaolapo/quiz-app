@@ -1,25 +1,11 @@
 //All Routes for registration are defined here
 const express = require('express');
 const router  = express.Router();
-<<<<<<< HEAD
 const { authenticate, generateRandomString } = require("../lib/helpers.js");
 const userQueries = require('../db/queries/user_queries')
 
 router.get('/', (req, res) => {
   res.render("/login");
-=======
-const cookieSession = require('cookie-session');
-const userQueries = require('../db/queries/user_queries');
-
-router.get('/', (req, res) => {
-  userQueries.getUsers()
-    .then((users) => {
-      res.json(users);
-    })
-    .catch((e) => {
-      console.log(e.message);
-    });
->>>>>>> master
 });
 
 router.post('/', (req, res) => {
@@ -28,7 +14,7 @@ router.post('/', (req, res) => {
     return;
   }
 
-  const user = {email: req.body.email, password: req.body.password}
+  const user = {email: "alice_wonderland@gmail.com", password: "alice"}
   authenticate(user, true)
     .then((msg) => {
       if (msg === "er1") {

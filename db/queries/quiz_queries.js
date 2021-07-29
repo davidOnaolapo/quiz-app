@@ -26,7 +26,17 @@ const getQuizzesWithUsername = () => {
     });
 };
 
+const getQuizCount = () => {
+  return db.query(`SELECT count(*) FROM quizzes;`)
+    .then(res => {
+      return res.rows;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
 module.exports = {
   getQuizzes,
-  getQuizzesWithUsername
+  getQuizzesWithUsername,
+  getQuizCount
 };

@@ -13,7 +13,7 @@ const grabApiQuestions = () => {
       //Just one question from the array of questions within the results object
       current_question = body.results[0];
 
-      const quiz_id = 1;
+      const quiz_id = 5;
       const the_question = current_question.question;
       const answer = current_question.correct_answer;
       const type =  current_question.type;
@@ -23,8 +23,6 @@ const grabApiQuestions = () => {
 
       return db.query(`
         INSERT INTO questions (quiz_id, question, answer, type, category)
-        VALUES ($1, $2, $3, $4, $5)
-        RETURNING *;egory)
         VALUES ($1, $2, $3, $4, $5)
         RETURNING *;
         `, values)
@@ -42,7 +40,6 @@ const grabApiQuestions = () => {
     }
   });
 }
-
 module.exports = {
   grabApiQuestions
 }
