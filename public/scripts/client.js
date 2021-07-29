@@ -31,6 +31,7 @@ const createQuizCard = (data) => {
   <li>
   <label for="quiz-question"> ${question} </label><br />
   <input type="text" name="user-answer">
+  <input type="text" name="user-question" value="${question}" hidden>
   </li>`
   );
   const $quizCard = $(`
@@ -43,7 +44,6 @@ const createQuizCard = (data) => {
   <form>
   <ol class="quiz-questions">
   ${questions}
-  
   </ol>
   <br>
   <button class="button" type="submit">Submit</button>
