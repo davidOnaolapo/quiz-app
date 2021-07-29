@@ -3,7 +3,7 @@
   <head>
     <!-- Meta Information -->
     <meta charset="utf-8">
-    <title>QUIZ WIZ</title>
+    <title>Login or Register</title>
     <!-- External CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
 
     <!-- External JS -->
 
@@ -26,9 +28,6 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>QUIZ WIZ</span>
-      <div class="create-quiz">
-        <button class="button" id="create-button">Create your own QUIZ</button>
-      </div>
     </nav>
     <!-- Header with logo/avatar  -->
     <header class="main-header">
@@ -37,7 +36,7 @@
     </div>
     <br>
     <div class="welcome-message">
-        <h2>Welcome to</h2>
+        <h2>Login or Register for</h2>
         <h2>QUIZ WIZ</h2>
     </div>
     </header>
@@ -45,17 +44,19 @@
    <main>
      <div>
      <h3>Login</h3>
-     <form class="login">
+     <form class="login" method="POST" action="/login">
       <label for="login-email">Email: </label>
       <input type="email" name="email">
       <br>
       <label for="login-password">Password: </label>
       <input type="password" name="password">
+      <br>
+      <button class="login-btn" type="submit">Login</button>
      </form>
     </div>
     <div>
       <h3>Register</h3>
-      <form class="register">
+      <form class="register" method="POST" action="/register">
         <label for="register-email">Email: </label>
         <input type="email" name="email">
         <br>
@@ -64,10 +65,10 @@
         <br>
         <label for="register-password">Password: </label>
         <input type="password" name="password">
+        <br>
+        <button class="register" type="submit">Register</button>
       </form>
     </div>
   </main>
-  <!-- Footer (fixed) -->
-  <!-- <footer class="site-footer">Created by DBM for Lighthouse Labs</footer> -->
 </body>
 </html>

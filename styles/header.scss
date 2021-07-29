@@ -7,24 +7,32 @@ header.main-header {
   margin-top: 100px;
   margin-left: 20px;
   margin-right: 25px;
-  width: 30%;
+  width: 35%;
 
 
   .main-image {
     img {
       height: 250px;
-      width: 325px;
+      width: 375px;
       margin-top: 60px;
+    }
+  }
+
+  .avatar {
+    img {
+      height: 300px;
+      width: 325px;
+      margin-top: 90px;
     }
   }
 
   .welcome-message {
     font-family: 'Luckiest Guy', cursive;
+    font-size: 1.5em;
   }
 
   div.scores {
     border: 5px solid rgb(49, 49, 49);
     padding: 10px;
-    // display: none;
   }
 }

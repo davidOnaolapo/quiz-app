@@ -57,9 +57,17 @@ app.get("/", (req, res) => {
   } else {
     console.log("no user")
   }
-  console.log(templateVars.user);
+  // console.log(templateVars.user);
   res.render("index", templateVars);
 });
+
+app.get("/user", (req, res) => {
+  res.render("user")
+})
+
+app.get("/private", (req, res) => {
+  res.render("private")
+})
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
