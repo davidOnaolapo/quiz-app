@@ -4,7 +4,7 @@ $(document).ready(function() {
     $("section.new-quiz").slideDown("fast")
   })
 
-  $("form").submit(create_quiz);
+  $(".create-form").submit(create_quiz);
 
 });
 
