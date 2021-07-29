@@ -18,7 +18,6 @@ const getQuestionsUsernameQuizId = () => {
     GROUP BY quiz_id, question, username;
     `)
     .then(res => {
-      console.log(res.row);
       return res.rows;
     })
     .catch(err => {

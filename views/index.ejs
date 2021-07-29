@@ -52,25 +52,22 @@
      <!-- Create quiz form (normally hidden) -->
     <section class="new-quiz">
       <h3>Make your own public or private QUIZ</h3>
-      <% if (user) { %>
-        <h1><%= user %><span>🚀</span></h1>
-  <% }%>
       <form class="create-form">
         <div class="error">
           <p class="error-message">error</p>
         </div>
         <label for="title">Title: </label>
-        <input type="text" name="quiz-title">
+        <input type="text" name="quiz_title">
         <label for="category">Category: </label>
-        <input type="text" name="quiz-category">
+        <input type="text" name="quiz_category">
         <br>
         <label for="question">Question: </label>
-        <input type="text" name="quiz-question">
+        <input type="text" name="quiz_question">
         <label for="answer">Answer: </label>
         <input type="text" name="answer">
         <br>
         <label for="question">Question: </label>
-        <input type="text" name="quiz-question">
+        <input type="text" name="quiz_question">
         <label for="answer">Answer: </label>
         <input type="text" name="answer">
         <br>

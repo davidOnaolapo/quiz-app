@@ -15,6 +15,8 @@ function create_quiz(event) {     //event handler for new quizzes
   const $formText = $(this.text);
   $.post('/create_quiz', $serializedData)
   .then(function(data) {
+    loadQuizzes();
+    console.log(data)
     $(".new-quiz").slideUp("fast");
     $($formText).val('');
   })
