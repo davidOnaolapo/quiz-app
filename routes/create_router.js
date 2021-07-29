@@ -5,9 +5,15 @@ const quizInserts = require('../db/inserts/quiz_inserts');
 const userQueries = require('../db/queries/user_queries');
 
 router.post('/', (req, res) => {
-  if (!req.body.text) {
+  console.log("I'm in req.body");
+  console.log(req.body);
+
+  if (!req.body) {
     res.status(400).json({ error: 'invalid request: no data in POST body'});
     return;
+  }
+  else {
+    res.send({message: "hello"});
   }
   // grab relevant req.body variables here, including whether its a private quiz
 
