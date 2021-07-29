@@ -27,13 +27,13 @@ const loadQuizzes = function() {      //Load each quiz with appropriate data
 
 const createQuizCard = (data) => {
   //Function to create dynamic quiz cards
-  const questions = data.questions.map(question => ` 
+  const questions = data.questions.map(question => `
   <li>
   <label for="quiz-question"> ${question} </label><br />
   <input type="text" name="user-answer">
   <input type="text" name="user-question" value="${question}" hidden>
-  </li>`
-  );
+  </li>
+  `);
   const $quizCard = $(`
   <article class="quiz">
   <header class="card-title">

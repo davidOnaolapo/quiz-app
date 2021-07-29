@@ -9,4 +9,17 @@
   .error {
     display: none;
   }
+
+  .create-form {
+    border: rgb(49, 49, 49) 5px solid;
+    padding: 7px;
+    display: flex;
+    flex-direction: column;
+    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+
+    input {
+      border: none;
+
+    }
+  }
 }

@@ -14,22 +14,22 @@ router.post('/', (req, res) => {
     return;
   }
 
-  // const user = {email: "alice_wonderland@gmail.com", password: "alice"}
-  // authenticate(user, true)
-  //   .then((msg) => {
-  //     if (msg === "er1") {
-  //       res.send(msg)
-  //     } else if (msg === "er2") {
-  //       res.send(msg)
-  //     } else if (msg === "legit") {
-        //name the username the cookie session variable
-        // req.session.user = msg;
+  const user = {email: "alice_wonderland@gmail.com", password: "alice"}
+  authenticate(user, true)
+    .then((msg) => {
+      if (msg === "er1") {
+        res.send(msg)
+      } else if (msg === "er2") {
+        res.send(msg)
+      } else if (msg === "legit") {
+        // name the username the cookie session variable
+        req.session.user = msg;
         res.redirect("/");
-    //   }
-    // })
-    // .catch((e) => {
-    //   console.log(e.message);
-    // });
+      }
+    })
+    .catch((e) => {
+      console.log(e.message);
+    });
 });
 
 module.exports = router;

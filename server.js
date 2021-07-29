@@ -55,12 +55,8 @@ app.get("/", (req, res) => {
     templateVars = {user: req.session.user};
     console.log(req.session.user);
   } else {
-<<<<<<< HEAD
     templateVars = {user: false}
     console.log("no user")
-=======
-    console.log("no user");
->>>>>>> master
   }
   console.log(templateVars.user);
   res.render("index", templateVars);

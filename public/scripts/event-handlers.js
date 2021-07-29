@@ -23,7 +23,7 @@ function create_quiz(event) {     //event handler for new quizzes
 
 
     });
-});
+};
 
 function submit_quiz(event) {     //event handler for quiz submissions
   event.preventDefault();
@@ -32,7 +32,7 @@ function submit_quiz(event) {     //event handler for quiz submissions
   console.log($(this));
 
   const $formText = $(this.text);
-  
+
 
   $.post('/submit_quiz', $serializedData, (err, score) => {
     if (err) {
