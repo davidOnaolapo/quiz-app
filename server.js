@@ -55,6 +55,7 @@ app.get("/", (req, res) => {
     templateVars = {user: req.session.user}
     console.log(req.session.user);
   } else {
+    templateVars = {user: false}
     console.log("no user")
   }
   // console.log(templateVars.user);
