@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Information -->
+    <meta charset="utf-8">
+    <title>QUIZ WIZ</title>
+    <!-- External CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- App CSS -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <!-- External JS -->
+
+
+    <!-- App JS -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/event-handlers.js"></script>
+  </head>
+
+  <body>
+    <!-- Top nav bar (fixed) -->
+    <nav>
+      <span>QUIZ WIZ</span>
+      <div class="create-quiz">
+        <button class="button" id="create-button">Create your own QUIZ</button>
+      </div>
+    </nav>
+    <!-- Header with logo/avatar  -->
+    <header class="main-header">
+      <div class="main-image">
+        <img src="https://images.pexels.com/photos/6266316/pexels-photo-6266316.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+    </div>
+    <br>
+    <div class="welcome-message">
+        <h2>Welcome to</h2>
+        <h2>QUIZ WIZ</h2>
+    </div>
+    </header>
+   <!-- Page-specific (main) content here -->
+   <main>
+     <div>
+     <h3>Login</h3>
+     <form class="login">
+      <label for="login-email">Email: </label>
+      <input type="email" name="email">
+      <br>
+      <label for="login-password">Password: </label>
+      <input type="password" name="password">
+     </form>
+    </div>
+    <div>
+      <h3>Register</h3>
+      <form class="register">
+        <label for="register-email">Email: </label>
+        <input type="email" name="email">
+        <br>
+        <label for="register-username">Username: </label>
+        <input type="text" name="username">
+        <br>
+        <label for="register-password">Password: </label>
+        <input type="password" name="password">
+      </form>
+    </div>
+  </main>
+  <!-- Footer (fixed) -->
+  <!-- <footer class="site-footer">Created by DBM for Lighthouse Labs</footer> -->
+</body>
+</html>
