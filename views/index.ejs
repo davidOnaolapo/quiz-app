@@ -52,6 +52,9 @@
      <!-- Create quiz form (normally hidden) -->
     <section class="new-quiz">
       <h3>Make your own public or private QUIZ</h3>
+      <% if (user) { %>
+        <h1><%= user %><span>🚀</span></h1>
+  <% }%>
       <form class="create-form">
         <div class="error">
           <p class="error-message">error</p>
@@ -70,6 +73,9 @@
         <input type="text" name="quiz-question">
         <label for="answer">Answer: </label>
         <input type="text" name="answer">
+        <br>
+        <input type="checkbox" name="is-private">
+        <label for="is-private">Keep my quiz private</label>
         <br>
         <button class="button" type="submit">Submit</button>
       </form>
