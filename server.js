@@ -51,13 +51,12 @@ app.use('/test', testRouter);
 // Home page
 app.get("/", (req, res) => {
   let templateVars;
-  // if(req.session.user) {
-  //   templateVars = {user: req.session.user}
-  //   console.log(req.session.user);
-  // } else {
-  //   console.log("no user")
-  // }
-  // console.log(templateVars.user);
+  if(req.session.user) {
+    templateVars = {user: req.session.user}
+    console.log(req.session.user);
+  } else {
+    templateVars = {user: false};
+  }
   res.render("index", templateVars);
 });
 

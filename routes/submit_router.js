@@ -16,9 +16,9 @@ router.post('/', async(req, res) => {
 
   // const questions = req.body.quiz-question
   // const userAnswers = req.body.user-answers
-  // const username = req.session.user;
+  // const username = req.session.username;
 
-  console.log( req.session)
+  console.log( req.session.username)
 
   // userQueries.getUserIdByUsername(username)
   //   .then((user_id) => {

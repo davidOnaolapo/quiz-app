@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
     .catch ((err) =>{
       console.log(err.message)
     })
-  //for question inserts
+  //for question insertse
   const questions = req.body.quiz_question;
   const answers = req.body.answer;
   quizQueries.getQuizCount()
