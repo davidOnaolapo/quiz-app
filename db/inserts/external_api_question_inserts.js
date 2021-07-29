@@ -4,11 +4,11 @@ const request = require('request');
 //Grab questions from external API and inserts into questions column
 const grabApiQuestions = () => {
   return request('https://opentdb.com/api.php?amount=50', (error, response, body) => {
-    if(error) {
+    if (error) {
       console.log(error);
     }
 
-    if(body) {
+    if (body) {
   	  body = JSON.parse(body);
       //Just one question from the array of questions within the results object
       current_question = body.results[0];
@@ -32,18 +32,14 @@ const grabApiQuestions = () => {
             return result.rows[0];
           } else {
             return null;
-        }
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+          }
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
     }
   });
-}
+};
 module.exports = {
   grabApiQuestions
-}
-
-
-
-
+};

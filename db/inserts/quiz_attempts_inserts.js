@@ -22,7 +22,3 @@ const insertQuizAttempts = (user_id, quiz_id, score) => {
 module.exports = {
   insertQuizAttempts
 };
-
-
-
-

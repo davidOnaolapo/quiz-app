@@ -27,7 +27,3 @@ const insertQuiz = (quizObj) => {
 module.exports = {
   insertQuiz
 };
-
-
-
-
