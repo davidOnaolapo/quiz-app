@@ -1,28 +1,28 @@
 $(document).ready(function() {
-  $("form.create-form").submit(function(event) {     //event handler for new quizzes
+
+  $("#create-button").click(function(event) {   //animation to show create quiz form
+    $("section.new-quiz").slideDown("fast")
+  })
+
+
+  $("form").submit(function(event) {     //event handler for new quizzes
     event.preventDefault();
 
     const $serializedData = $(this).serialize();
     const $formText = $(this.text);
 
     $.post('/create_quiz', $serializedData)
-    .then(function() {
+    .then(function(data) {
       loadQuizzes();
-      $("section.new-quiz").slideUp("fast");
+      $(".new-quiz").slideUp("fast");
       $($formText).val('');
-    })
-    .catch(function(err) {
-      console.log(err.message)
-    })
-  })
+      console.log($serializedData);
 
-  $("#create-button").click(function(event) {
-    $("section.new-quiz").slideDown("fast")
+    })
   })
 
 
 });
-
 
 
 function submit_quiz(event) {     //event handler for quiz submissions
@@ -31,12 +31,17 @@ function submit_quiz(event) {     //event handler for quiz submissions
   const $serializedData = $(this).serialize();
   const $formText = $(this.text);
 
-  $.post('/submit_quiz', $serializedData)
-  .then(function() {
-      console.log($serializedData)
+  $.post('/submit_quiz', $serializedData, (err, data) => {
     $($formText).val('');
   })
+
+
 }
+
+
+
+
+
 
 
 
