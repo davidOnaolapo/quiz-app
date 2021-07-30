@@ -38,7 +38,7 @@ router.post('/', (req, res) => {
         questionInserts.insertQuestion(quizObj)
       }
      })
-  res.json({quiz_title: title , quiz_category: category, username: user, no_of_questions, questions})
+  res.json({quiz_title: title , quiz_category: category, username, user, no_of_questions, questions})
 
 
   //reroute to /quiz_wiz/:user_id/:id to render a private quiz

@@ -67,7 +67,7 @@ const createQuizCard = (data) => {      //Function to create dynamic quiz cards
           <button class="button" type="submit">Submit</button>
         </form>
       </div>
-      <div style="background: white;
+      <div style="background: #fcffa4; display:flex; justify-content: center;
       border-radius: 50%;
       width: 100px;
       height: 100px;" id = "${data.quiz_id}">
