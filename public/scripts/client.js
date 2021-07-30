@@ -67,11 +67,9 @@ const createQuizCard = (data) => {      //Function to create dynamic quiz cards
           <button class="button" type="submit">Submit</button>
         </form>
       </div>
-      <div style="background: #fcffa4; display:flex; justify-content: center;
-      border-radius: 50%;
-      width: 100px;
-      height: 100px;" id = "${data.quiz_id}">
-      1
+      <div class="score"
+       id = "${data.quiz_id}">
+      0
       </div>
     </article>
   `);
@@ -81,28 +79,4 @@ const createQuizCard = (data) => {      //Function to create dynamic quiz cards
 };
 
 
-const renderQuestions = function(questions) {
-  for (const question of questions) {
-    if (question.quiz_id = quiz.id) {
-      $(".quiz-questions").append(createQuestionForm(question));
-    }
-  }
-};
 
-const loadQuestions = function() {
-  $.get("/")
-    .then(function(questionData) {
-      renderQuestions(questionData);
-    });
-};
-
-const createQuestionForm = function(data) {     //Function to create question form dynamically
-  const $questionForm = $(`
-  <li>
-  <label for="quiz-question">${data.question} </label>
-  <input type="text" name="user-answer">
-  </li>
-  `);
-
-  return $questionForm;
-};
