@@ -18,7 +18,7 @@ router.post('/', async(req, res) => {
   const userAnswers = req.body["user_answer"]
   const username = req.session.username;
 
-  const calculateScore = async (questions) => {
+  const calculateScore = async(questions) => {
     let score = 0;
     for (let i = 0; i < questions.length; i++) {
       const answer = await getAnswerFromDb(questions[i]);
@@ -36,11 +36,10 @@ router.post('/', async(req, res) => {
   const user_id = await userQueries.getUserIdByUsername(username);
   const quizScore = await calculateScore(questions);
 
-  questionQueries.getQuizIdForQuestion(questions[0])
-    .then((quiz_id) => {
+  const quiz_id = await questionQueries.getQuizIdForQuestion(questions[0]);
 
-      res.json({quizScore, quiz_id});
-    })
+  res.json({quizScore, quiz_id});
+
   //run any other relevant queries
   //send a response with the score and other relevant info
   //run any other relevant queries

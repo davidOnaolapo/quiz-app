@@ -10,6 +10,23 @@ const getQuizzes = () => {
     });
 };
 
+const getQuizzesByUserName = (username) => {
+  return db.query(`
+      SELECT  quizzes.id as quiz_id, quizzes.title as quiz_title, quizzes.no_of_questions as no_of_questions,
+        quizzes.category as quiz_category, users.username as userName
+      FROM users
+      JOIN quizzes ON user_id = users.id
+      WHERE userName = $1
+      GROUP BY quizzes.id, quizzes.title, quizzes.no_of_questions, quizzes.category, users.username;
+    `, [username])
+    .then(res => {
+      return res.rows;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
+
 const getQuizzesWithUsername = () => {
   return db.query(`
       SELECT  quizzes.id as quiz_id, quizzes.title as quiz_title, quizzes.no_of_questions as no_of_questions,
@@ -47,5 +64,6 @@ module.exports = {
   getQuizzes,
   getQuizzesWithUsername,
   getQuizCount,
-  getAnswerFromDb
+  getAnswerFromDb,
+  getQuizzesByUserName
 };

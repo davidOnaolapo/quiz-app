@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const quizQueries = require('../db/queries/quiz_queries');
 const questionQueries = require('../db/queries/question_queries');
-const { quizWizData } = require('../lib/helpers');
+const { quizWizDataHome } = require('../lib/helpers');
 
 //get the home page with all relevant data
 router.get('/', (req, res) => {
@@ -10,8 +10,7 @@ router.get('/', (req, res) => {
     .then((quizData) => {
       questionQueries.getQuestionsUsernameQuizId()
         .then((questionsData) => {
-          console.log("QUESTIONS DATA", questionsData)
-          res.json(quizWizData(quizData, questionsData));
+          res.json(quizWizDataHome(quizData, questionsData));
         })
     })
     .catch((e) => {

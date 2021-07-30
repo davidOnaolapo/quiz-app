@@ -2,45 +2,23 @@
 const express = require('express');
 const router  = express.Router();
 const userQueries = require('../db/queries/user_queries')
+const quizQueries = require('../db/queries/quiz_queries')
+const questionQueries = require('../db/queries/question_queries')
+const { quizWizDataUsers } = require('../lib/helpers');
 
 router.get('/', (req, res) => {
-  userQueries.getUsers()
-    .then((users) => {
-      res.json(users);
+  console.log("INSIDE END POINT")
+  const username = req.session.username
+  quizQueries.getQuizzesByUserName(username)
+    .then((quizData) => {
+      questionQueries.getQuestionsByUsernameQuizId(username)
+        .then((questionsData) => {
+           res.json(quizWizDataUsers(quizData, questionsData));
+        })
     })
     .catch((e) => {
       console.log(e.message);
-    })
-});
-
-router.get('/', (req, res) => {
-  userQueries.getUsersById()
-    .then((users) => {
-      res.json(users);
-    })
-    .catch((e) => {
-      console.log(e.message);
-    })
-});
-
-router.get('/', (req, res) => {
-  userQueries.getUsers()
-    .then((users) => {
-      res.json(users);
-    })
-    .catch((e) => {
-      console.log(e.message);
-    })
-});
-
-router.get('/', (req, res) => {
-  userQueries.getUsers()
-    .then((users) => {
-      res.json(users);
-    })
-    .catch((e) => {
-      console.log(e.message);
-    })
+    });
 });
 
 module.exports = router;

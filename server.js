@@ -17,6 +17,7 @@ const createQuizRouter = require('./routes/create_router');
 const loginRouter = require('./routes/login_router');
 const logoutRouter = require('./routes/logout_router');
 const registerRouter = require('./routes/register_router');
+const userRouter = require('./routes/user_router');
 const testRouter = require('./routes/test_router');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -39,6 +40,7 @@ app.use(cookieSession({
 // Resource routes are mounted here
 app.use('/quiz_wiz', quizWizRouter);
 app.use('/submit_quiz', submitQuizRouter);
+app.use('/wiz_user', userRouter);
 app.use('/create_quiz', createQuizRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
@@ -68,8 +70,8 @@ app.get("/user", (req, res) => {
   } else {
     templateVars = {user: false};
   }
-  res.render("user", templateVars)
-})
+  res.render("user", templateVars);
+});
 
 app.get("/private", (req, res) => {
   let templateVars;

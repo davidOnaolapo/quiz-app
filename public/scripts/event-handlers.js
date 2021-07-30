@@ -36,9 +36,8 @@ function submit_quiz(event) {     //event handler for quiz submissions
     if (err) {
       console.log(err);
     }
-    // document.getElementById(`${score.}`).innerHTML = counter;
-    // $($formText).val('');
-    console.log(score.quiz_id);
+    console.log(score)
+    $(`#${score.quiz_id[0].quiz_id}`).html(`${score.quizScore}`);
 
   });
 }
