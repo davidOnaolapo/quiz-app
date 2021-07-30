@@ -62,9 +62,9 @@ const createQuizCard = (data) => {      //Function to create dynamic quiz cards
           <ol class="quiz-questions">
             ${questions}
           </ol>
-          <div>${data.username}</div>
-          <br>
           <button class="button" type="submit">Submit</button>
+          <br>
+          <div class="username" >Made by ${data.username}</div>
         </form>
       </div>
       <div class="score"

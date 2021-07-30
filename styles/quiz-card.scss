@@ -34,6 +34,12 @@ article {
 
       button {
         width: 20%;
+        margin-top: 0.8em;
+      }
+
+      .username {
+        font-size: 0.8em;
+        color: blanchedalmond;
       }
     }
   }
@@ -43,5 +49,6 @@ article {
     align-self: flex-end;
     padding: 7px;
     font-size: 1.5em;
+
   }
 }
