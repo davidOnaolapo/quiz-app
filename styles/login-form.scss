@@ -1,0 +1,23 @@
+main {
+
+  div {
+    border: rgb(49, 49, 49) 5px solid;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    margin: 1em;
+    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      button {
+        width: 40%;
+      }
+    }
+
+  }
+}
+

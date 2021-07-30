@@ -32,13 +32,15 @@
   <!-- Top nav bar (fixed) -->
   <nav>
     <span>QUIZ WIZ</span>
+    <section>
     <div class="login-register">
       <% if (user) { %>
-        Logged in as: <%= user %>!
+        <p>Logged in as:
+          <a class="user-nav" href="/user"><%= user %>!</a>
+          </p>
         <form method="POST" action="/logout">
         <button type="submit" class="logout-btn"> Logout </button>
         </form>
-        <a class="user-nav" href="/user">Profile</a>
         <% } else { %>
           <a class="login-register-nav" href="/login">Login/Register</a>
           <% } %>
@@ -46,6 +48,7 @@
     <div class="create-quiz">
       <button class="button" id="create-button">Create your own QUIZ</button>
     </div>
+  </section>
   </nav>
   <!-- Header with logo/avatar  -->
   <header class="main-header">
