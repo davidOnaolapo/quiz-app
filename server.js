@@ -61,11 +61,25 @@ app.get("/", (req, res) => {
 });
 
 app.get("/user", (req, res) => {
-  res.render("user")
+  let templateVars;
+  if(req.session.username) {
+    templateVars = {user: req.session.username}
+    console.log(req.session.user);
+  } else {
+    templateVars = {user: false};
+  }
+  res.render("user", templateVars)
 })
 
 app.get("/private", (req, res) => {
-  res.render("private")
+  let templateVars;
+  if(req.session.username) {
+    templateVars = {user: req.session.username}
+    console.log(req.session.user);
+  } else {
+    templateVars = {user: false};
+  }
+  res.render("private", templateVars)
 })
 
 app.listen(PORT, () => {

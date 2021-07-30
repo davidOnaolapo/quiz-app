@@ -17,12 +17,25 @@ nav {
     font-size: 2em;
   }
 
-
-  .login-register {
+  section {
     display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 
-    a {
-      padding: 1em;
+    .login-register {
+      display: flex;
+      flex-direction: row;
+      color: blanchedalmond;
+
+      form {
+        padding: 0.5em;
+      }
+
+      a {
+        padding: 0.5em;
+
+      }
     }
   }
+
 }
