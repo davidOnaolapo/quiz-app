@@ -51,8 +51,8 @@ app.use('/test', testRouter);
 // Home page
 app.get("/", (req, res) => {
   let templateVars = {};
-  if (req.session.user) {
-    templateVars = {user: req.session.user};
+  if (req.session.username) {
+    templateVars = {user: req.session.username};
     console.log(req.session.user);
   } else {
     templateVars = {user: false}

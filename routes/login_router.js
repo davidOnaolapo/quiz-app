@@ -5,7 +5,6 @@ const { authenticate, generateRandomString } = require("../lib/helpers.js");
 const userQueries = require('../db/queries/user_queries')
 
 router.get('/', (req, res) => {
-  req.session.username = 'cool_Alice';
   res.render("login");
 });
 
