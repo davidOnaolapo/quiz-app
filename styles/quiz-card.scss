@@ -2,36 +2,38 @@
   display: flex;
   flex-direction: column;
 
-  article {
+}
+
+
+article {
+  display: flex;
+  flex-direction: column;
+  border: rgb(49, 49, 49) 5px solid;
+  padding: 5px;
+  margin: 10px;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+
+  header.card-title {
     display: flex;
-    flex-direction: column;
-    border: rgb(49, 49, 49) 5px solid;
-    padding: 5px;
-    margin: 10px;
-    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 1.3em;
+  }
 
-    header.card-title {
+  .quiz-form {
+    // display: none;
+    form {
       display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      font-family: 'Luckiest Guy', cursive;
-      font-size: 1.3em;
-    }
+      flex-direction: column;
+      padding: 7px;
 
-    .quiz-form {
-      // display: none;
-      form {
-        display: flex;
-        flex-direction: column;
-        padding: 7px;
+      input {
+        border: none;
+      }
 
-        input {
-          border: none;
-        }
-
-        button {
-          width: 20%;
-        }
+      button {
+        width: 20%;
       }
     }
   }
