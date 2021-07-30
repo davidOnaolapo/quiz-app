@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
     .then((quizData) => {
       questionQueries.getQuestionsUsernameQuizId()
         .then((questionsData) => {
+          console.log("QUESTIONS DATA", questionsData)
           res.json(quizWizData(quizData, questionsData));
         })
     })

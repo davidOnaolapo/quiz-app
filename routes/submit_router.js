@@ -14,22 +14,19 @@ router.post('/', async(req, res) => {
     return;
   }
 
-  console.log(req.body);
-
   const questions = req.body['user-question'];
   const userAnswers = req.body['user-answer'];
   const username = req.session.user || 'cool-Alice';
 
-  console.log(questions, userAnswers,username);
   const calculateScore = async(questions) => {
     let score = 0;
     for (let i = 0; i < questions.length; i++) {
       const answer = await getAnswerFromDb(questions[i]);
       if (answer.toLowerCase().trim() === userAnswers[i].toLowerCase().trim()) {
-      
+
         score++;
       }
-     
+
       //Insert quiz attempts into the db with call to quizInsertsAttempts if you get there
     }
     return score;
@@ -37,9 +34,8 @@ router.post('/', async(req, res) => {
 
 
   const user_id = await userQueries.getUserIdByUsername(username);
- 
+
   const quizScore = await calculateScore(questions);
-  console.log(quizScore);
   res.json({quizScore});
 
 });

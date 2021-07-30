@@ -11,15 +11,19 @@ const escape = function(str) {            //Use escape function to prevent vulne
 const renderQuizzes = function(quizzes) {       //Render each new quiz card and append it to public container
   $("#public-quizzes-container").empty();
   quizzes.forEach(function(quiz) {
+    console.log(quiz)
     $("#public-quizzes-container").prepend(createQuizCard(quiz));
   });
 };
 
+const addNewQuiz = function(quiz) {
+  $("#public-quizzes-container").prepend(createQuizCard(quiz));
+}
 
 const loadQuizzes = function() {      //Load each quiz with appropriate data
   $.get("/quiz_wiz")
     .then(function(quizData) {
-
+      console.log("Inside loadquizzes", quizData)
       renderQuizzes(quizData);
     });
 };
