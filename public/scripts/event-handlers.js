@@ -40,6 +40,4 @@ function submit_quiz(event) {     //event handler for quiz submissions
     console.log(score);
 
   });
-
-
 }
