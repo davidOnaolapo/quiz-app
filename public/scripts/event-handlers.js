@@ -5,7 +5,7 @@ $(document).ready(function() {
     $("section.new-quiz").slideDown("fast");
   });
 
-
+  $(".create-form").submit(create_quiz);
 });
 
 function create_quiz(event) {     //event handler for new quizzes
@@ -16,23 +16,21 @@ function create_quiz(event) {     //event handler for new quizzes
   $.post('/create_quiz', $serializedData)
 
     .then(function(data) {
-      loadQuizzes();
+      console.log(data);
+        addNewQuiz(data);
       $(".new-quiz").slideUp("fast");
       $($formText).val('');
       console.log($serializedData);
-
-
     });
-});
+};
 
 function submit_quiz(event) {     //event handler for quiz submissions
   event.preventDefault();
   console.log("in submit");
   const $serializedData = $(this).serialize();
-  console.log($(this));
 
   const $formText = $(this.text);
-  
+
 
   $.post('/submit_quiz', $serializedData, (err, score) => {
     if (err) {

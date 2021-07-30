@@ -14,13 +14,10 @@ router.post('/', async(req, res) => {
     return;
   }
 
-  console.log(req.body);
-
   const questions = req.body['user-question'];
   const userAnswers = req.body['user-answer'];
   const username = req.session.user || 'cool-Alice';
 
-  console.log(questions, userAnswers,username);
   const calculateScore = async(questions) => {
     let score = 0;
     for (let i = 0; i < questions.length; i++) {
@@ -39,7 +36,6 @@ router.post('/', async(req, res) => {
   const user_id = await userQueries.getUserIdByUsername(username);
 
   const quizScore = await calculateScore(questions);
-  console.log(quizScore);
   res.json({quizScore});
 
 });

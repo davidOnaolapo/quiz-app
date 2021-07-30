@@ -12,7 +12,7 @@ router.post('/', (req, res) => {
   }
   //for quiz inserts
   const username = req.session.username;
-  console.log(username)
+  console.log("username is: ", username)
   const no_of_questions = req.body.quiz_question.length;
   const category = req.body.quiz_category;
   const title = req.body.quiz_title;
@@ -20,13 +20,14 @@ router.post('/', (req, res) => {
 
   userQueries.getUserIdByUsername(username)
     .then((user_id) => {
+      console.log("USER_ID IN ROUTER**", user_id)
       const quizObj = {user_id, no_of_questions, category, title, is_private}
       quizInserts.insertQuiz(quizObj);
     })
     .catch ((err) =>{
       console.log(err.message)
     })
-  //for question insertse
+  //for question inserts
   const questions = req.body.quiz_question;
   const answers = req.body.answer;
   quizQueries.getQuizCount()
@@ -37,7 +38,8 @@ router.post('/', (req, res) => {
         questionInserts.insertQuestion(quizObj)
       }
      })
-  res.json({title: 'Yas', category: 'Les geddit', user: "Greatest", no_of_questions: '2'})
+  res.json({quiz_title: title , quiz_category: category, username: user, no_of_questions, questions})
+
 
   //reroute to /quiz_wiz/:user_id/:id to render a private quiz
 });

@@ -33,7 +33,6 @@ const getQuestionsUsernameQuizId = () => {
       ORDER BY quiz_id;
     `)
     .then(res => {
-      console.log(res.row);
       return res.rows;
     })
     .catch(err => {
@@ -48,7 +47,6 @@ const getQuestionsUsernameQuizId = () => {
       WHERE question = ${question};
     `)
     .then(res => {
-      console.log(res.row);
       return res.rows;
     })
     .catch(err => {
