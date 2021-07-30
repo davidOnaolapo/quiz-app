@@ -26,6 +26,7 @@ const getQuestionsUsernameQuizId = () => {
   }
 
   const getQuizIdForQuestion = (question) => {
+    console.log("About to query")
     return db.query(`
       SELECT quiz_id
       FROM questions

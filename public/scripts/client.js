@@ -34,8 +34,8 @@ const createQuizCard = (data) => {
   const questions = data.questions.map(question => `
   <li>
   <label for="quiz-question"> ${question} </label><br />
-  <input type="text" name="user-answer">
-  <input type="text" name="user-question" value="${question}" hidden>
+  <input type="text" name="user_answer">
+  <input type="text" name="quiz_question" value="${question}" hidden>
   </li>
   `);
   const $quizCard = $(`
@@ -51,6 +51,7 @@ const createQuizCard = (data) => {
   ${questions}
 
   </ol>
+  <div>${data.username}</div>
   <br>
   <button class="button" type="submit">Submit</button>
   </form>
