@@ -16,26 +16,31 @@ router.post('/', async(req, res) => {
 
   const questions = req.body["quiz_question"]
   const userAnswers = req.body["user_answer"]
-  const username = req.session["username"]
+  const username = req.session.username;
 
-  userQueries.getUserIdByUsername(username)
-    .then((user_id) => {
-      questionQueries.getQuizIdForQuestion(questions[0])
-      .then((quiz_id) => {
-        console.log(quiz_id)
-  //       let ansArr = [];
-  //       for (let i = 0; i< questions.length; i++) {
-  //         questionQueries.getAnswerForQuestion(questions[i])
-  //           .then((answer) => {
-  //             ansArr.push(answer);
-  //           })
-  //       }
-  //       //Insert quiz attempts into the db with call to quizInsertsAttempts if you get there
-  //       const scoreArr = calculateScore(ansArr, userAnswers);
-  //       res.json([{score: scoreArr}]);
-      })
+  const calculateScore = async (questions) => {
+    let score = 0;
+    for (let i = 0; i < questions.length; i++) {
+      const answer = await getAnswerFromDb(questions[i]);
+      if (answer.toLowerCase().trim() === userAnswers[i].toLowerCase().trim()) {
+
+        score++;
+      }
+
+      //Insert quiz attempts into the db with call to quizInsertsAttempts if you get there
+    }
+    return score;
+  };
+
+
+  const user_id = await userQueries.getUserIdByUsername(username);
+  const quizScore = await calculateScore(questions);
+
+  questionQueries.getQuizIdForQuestion(questions[0])
+    .then((quiz_id) => {
+
+      res.json({quizScore, quiz_id});
     })
-
   //run any other relevant queries
   //send a response with the score and other relevant info
   //run any other relevant queries

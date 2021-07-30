@@ -6,6 +6,7 @@ $(document).ready(function() {
   });
 
   $(".create-form").submit(create_quiz);
+
 });
 
 function create_quiz(event) {     //event handler for new quizzes
@@ -20,7 +21,6 @@ function create_quiz(event) {     //event handler for new quizzes
         addNewQuiz(data);
       $(".new-quiz").slideUp("fast");
       $($formText).val('');
-      console.log($serializedData);
     });
 };
 
@@ -32,12 +32,13 @@ function submit_quiz(event) {     //event handler for quiz submissions
   const $formText = $(this.text);
 
 
-  $.post('/submit_quiz', $serializedData, (err, score) => {
+  $.post('/submit_quiz', $serializedData, (score, err) => {
     if (err) {
       console.log(err);
     }
-    $($formText).val('');
-    console.log(score);
+    // document.getElementById(`${score.}`).innerHTML = counter;
+    // $($formText).val('');
+    console.log(score.quiz_id);
 
   });
 }

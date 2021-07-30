@@ -26,13 +26,13 @@ const getQuestionsUsernameQuizId = () => {
   }
 
   const getQuizIdForQuestion = (question) => {
-    console.log("About to query")
+    console.log("About to queryfor ", question)
     return db.query(`
       SELECT quiz_id
       FROM questions
-      WHERE question = ${question}
+      WHERE question LIKE $1
       ORDER BY quiz_id;
-    `)
+    `, [question])
     .then(res => {
       return res.rows;
     })
@@ -45,8 +45,8 @@ const getQuestionsUsernameQuizId = () => {
     return db.query(`
       SELECT question, answer
       FROM questions
-      WHERE question = ${question};
-    `)
+      WHERE question LIKE $1;
+    `, [question])
     .then(res => {
       return res.rows;
     })
