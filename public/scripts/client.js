@@ -45,7 +45,7 @@ const loadUserQuizzes = function() {
 const createQuizCard = (data) => {      //Function to create dynamic quiz cards
   console.log(data)
   const questions = data.questions.map(question => `
-    <li>
+    <li autocomplete='new-password'>
       <label for="quiz-question"> ${question} </label><br />
       <input type="text" name="user_answer">
       <input type="text" name="quiz_question" value="${question}" hidden>
