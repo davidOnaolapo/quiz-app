@@ -4,11 +4,10 @@ Quiz wiz is an application built for users to create custom quizzes, answer quiz
 
 ## Final Product
 
-!["Send your tweet, it instantly displays right on the top!"](https://github.com/davidOnaolapo/tweeter/blob/master/docs/tweetBox.jpg?raw=true)
+!["Home page, see all quizzes, answer any of them!"](https://github.com/davidOnaolapo/quiz-app/blob/master/docs/QuizWiz_homepage.jpg?raw=true)
 
-!["I-pad and mobile view!"](https://github.com/davidOnaolapo/tweeter/blob/master/docs/mobileView.jpg?raw=true)
+!["The users page"](https://github.com/davidOnaolapo/quiz-app/blob/master/docs/QuizWiz_userpage.jpg?raw=true)
 
-!["Be sure to keep the tweets under 140 characters ;)"](https://github.com/davidOnaolapo/tweeter/blob/master/docs/error.jpg?raw=true)
 
 
 ## Dependencies
@@ -18,6 +17,8 @@ Quiz wiz is an application built for users to create custom quizzes, answer quiz
 - cookie-session
 - nodemon
 - body-parser
+- Ejs
+-Express
 
 ## Getting Started
 
